@@ -1,0 +1,79 @@
+/* --- Small header +animation --- */
+.headerFade{
+    -webkit-animation: mymove 1.5s forwards;
+    animation: mymove 1.5s forwards;
+}
+@-webkit-keyframes mymove {
+    from {top: 0px;}
+    to {top: -100px;}
+}
+@keyframes mymove {
+    from {top: 0px;}
+    to {top: -100px;}
+}
+
+@media screen and (max-width: 800px) {
+    @-webkit-keyframes mymove {
+        from {top: 0px;}
+        to {top: -150px;}
+    }
+    @keyframes mymove {
+        from {top: 0px;}
+        to {top: -150px;}
+    }
+}
+
+
+/* --- +++ --- */
+/* --- --- --- --- */
+.workContent {
+    height: 100%;
+	width: 99%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+/* --- +++ --- */
+/* --- Background Vid --- */
+.fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 0;
+    display: none;
+}
+.fullscreen-bg__video {
+    position: absolute;
+    margin-left: 0.5%;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 99%;
+    height: 100%;
+}
+
+
+/* --- --- --- --- */
+/* --- Content --- */
+.workText {
+    margin-top: 70px;
+    z-index: 50;
+    position: relative;
+}
+
+.workFrame {
+    -webkit-clip-path: polygon(10% 20%, 90% 20%, 90% 90%, 10% 90%);
+    clip-path: polygon(10% 20%, 90% 20%, 90% 90%, 10% 90%);
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-attachment: fixed;  
+    background-position: center center;  
+}
+.workPic {
+    background-image: url(http://images.nationalgeographic.com/wpf/media-live/photos/000/895/cache/girl-swimming-underwater_89539_990x742.jpg); 
+}

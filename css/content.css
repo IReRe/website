@@ -1,0 +1,93 @@
+/* --- --- --- --- */
+/* --- --- --- --- */
+.content {
+	width: 100%;
+	height: 5400px;
+	background-color: #363534;
+    color:  #EDEDED;
+    font-weight: 100;
+    position: relative;
+    z-index: 0;
+}
+
+/* --- --- --- --- */
+/* --- Background --- */
+.background {
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.angle {
+    width: 100%;
+    height: 1200px;
+    background-size: cover;
+    background-attachment: fixed;  
+    background-position: center center;    
+}
+/* --- Frames --- */
+.frame1 {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+    margin-bottom: -540px;
+}
+.frame2 {
+    -webkit-clip-path: polygon(100% 0, 100% 100%, 50% 75%, 0 100%, 0 50%);
+    clip-path: polygon(100% 0, 100% 100%, 50% 75%, 0 100%, 0 50%);
+    margin-bottom: -240px;
+}
+.frame3 {
+    -webkit-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    margin-bottom: -240px;
+}
+.frame4 {
+    -webkit-clip-path: polygon(0 0, 50% 25%, 100% 0, 100% 100%, 0 50%);
+    clip-path: polygon(0 0, 50% 25%, 100% 0, 100% 100%, 0 50%);
+    margin-bottom: -540px;
+}
+.frame5 {
+    -webkit-clip-path: polygon(0 0, 100% 50%, 100% 75%, 0 100%);
+    clip-path: polygon(0 0, 100% 50%, 100% 75%, 0 100%);
+    margin-bottom: -240px;
+}
+.frame6 {
+    -webkit-clip-path: polygon(0 25%, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 25%, 100% 0, 100% 100%, 0 100%);
+}
+/* --- Background images --- */
+.bpic1{
+    background-image: url(http://images.nationalgeographic.com/wpf/media-live/photos/000/896/cache/table-mountain-fog_89675_990x742.jpg);   
+}
+.bpic2{
+    background-image: url(http://images.nationalgeographic.com/wpf/media-live/photos/000/883/cache/macaskill-mountain-biking-scotland_88360_990x742.jpg);   
+}
+.bpic3{
+    background-image: url(http://images.nationalgeographic.com/wpf/media-live/photos/000/895/cache/girl-swimming-underwater_89539_990x742.jpg);   
+}
+.bpic4{
+    background-image: url(http://images.nationalgeographic.com/wpf/media-live/photos/000/888/cache/sailfish-isla-mujeres-mexico_88866_990x742.jpg);   
+}
+.bpic5{
+    background-image: url(http://images.nationalgeographic.com/wpf/media-live/photos/000/409/cache/ice-canopy-japan-skerry_40982_990x742.jpg);   
+}
+.bpic6{
+    background-image: url(http://images.nationalgeographic.com/wpf/media-live/photos/000/816/cache/lava-crater-volcano-hawaii_81648_990x742.jpg);   
+}
+.bpic7{
+}
+
+.picShow div {
+    -webkit-transition: all 0.5s ease-in-out; 
+    -moz-transition: all 0.5s ease-in-out; 
+    -o-transition: all 0.5s ease-in-out; 
+    transition: all 0.5s ease-in-out; 
+}
+
+
+/* --- --- --- --- */
+/* --- Content --- */
+.text{
+    z-index: 50;
+    position: relative;
+}

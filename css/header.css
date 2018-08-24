@@ -1,0 +1,195 @@
+/* --- Header --- */
+header {
+    z-index: 100;
+	width: 100%;
+	height: 150px;
+	background-color: #292828;
+    position: relative;
+    max-width: none;
+}
+/* --- Header Top --- */
+.headTop {
+    height: 100px;
+	background-color: #363534;   
+    overflow: hidden;
+}
+
+/* --- Header Top Logo--- */ 
+.logo {
+    position: relative;
+}
+
+.logoImg {
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+    float: left
+}
+.logoImg img{
+    width: 100%;
+    height: auto;
+}
+
+.logoName {
+    margin-left: 15px;
+    margin-top: 40px;
+    float: left;
+    font-family: 'Comfortaa', sans-serif;
+    letter-spacing: 1px; 
+    font-size: 50px;
+}
+.logoName h1 {
+    float: left;
+    color: #EDEDED;
+    transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out;
+}
+.logoName:hover {
+    color: white;
+}
+.logoName:hover h1:nth-child(2) {  
+    color: #4075E8;
+}
+
+/* --- Header Top Slogan --- */
+.slogan {
+    margin-left: 20px;
+    margin-left: 5px;
+    margin-top: 78px;
+    font-size: 20px;
+    float: right;
+    letter-spacing: 5px;  
+    font-weight: 100;
+    color: #EDEDED;
+    text-transform: uppercase;
+}
+
+/* --- Header Top Responsivenes --- */
+@media screen and (max-width: 800px) {
+    .slogan {
+        display: none;
+    }
+    header {
+        height: 200px;
+    }
+    .headTop {
+        height: 150px;
+        position: relative;
+    }
+    .logo {
+        position: absolute;
+        width: 450px;
+        height: 100px;
+        margin: auto;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .logoName {
+        display: none;
+    }
+    .logo {
+        width: auto;
+        height: auto;
+    }
+    .logoImg {
+        width: 100%;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+    .logoImg img {
+        width: auto;
+        height: 100%;
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+    }
+}
+
+
+/* --- Header Bot --- */
+.headBot {
+	width: 100%;
+	height: 50px;
+	background-color: #292828;
+    overflow: hidden; 
+}
+
+/* --- Header Bot Menu --- */
+.menu ul {
+    margin-left: auto;
+    margin-right: auto;
+    list-style: none; 
+}
+.menu ul li {
+    float: right;
+}
+
+/* --- Header Bot Mobile Menu --- */
+.mobileMenuButton {
+    display: none; 
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;   
+}
+.menuButton p:nth-child(2){
+    display: none; 
+}
+.nightMode p:nth-child(1){
+    letter-spacing: 10.5px;
+}
+
+/* --- Header Bot Menu Buttons --- */
+.menuButton {
+    display: block;
+    padding: 6px 35px;
+    text-decoration: none;
+    text-align: center;
+    color: #EDEDED;
+    font-size: 30px;
+    font-weight: 100;
+    border-style: solid;
+    border-color: #292828;
+    border-width: 4px;
+    background-color: #292828;
+    transition: color 0.5s ease-in-out;
+    -o-transition: color 0.5s ease-in-out;
+    -ms-transition: color 0.5s ease-in-out;
+    -moz-transition: color 0.5s ease-in-out;
+    -webkit-transition: color 0.5s ease-in-out;
+}
+
+.menuButton:hover {
+    background-color: #363534;
+    color: #4075E8;
+}
+
+.activeMenu{
+    color: #4075E8;
+}
+
+/* --- Spacer Menu Point --- */
+.menu ul li:nth-child(2){
+    display: none; 
+}
+
+/* --- Header Bot Menu Responsivenes--- */
+@media screen and (max-width: 800px) {
+    .mobileMenuButton {
+        display:list-item; 
+    }
+    .menu ul li:nth-child(2){
+        display: block; 
+    }
+}
