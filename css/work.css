@@ -1,37 +1,40 @@
+/* --- --- --- --- */
 /* --- Small header +animation --- */
 .headerFade{
-    -webkit-animation: mymove 1.5s forwards;
-    animation: mymove 1.5s forwards;
+    -webkit-animation: headerAnim 1.5s forwards;
+    animation: headerAnim 1.5s forwards;
 }
-@-webkit-keyframes mymove {
-    from {top: 0px;}
-    to {top: -100px;}
-}
-@keyframes mymove {
-    from {top: 0px;}
-    to {top: -100px;}
-}
-
-@media screen and (max-width: 800px) {
-    @-webkit-keyframes mymove {
+    @-webkit-keyframes headerAnim {
         from {top: 0px;}
-        to {top: -150px;}
+        to {top: -100px;}
     }
-    @keyframes mymove {
+    @keyframes headerAnim {
         from {top: 0px;}
-        to {top: -150px;}
+        to {top: -100px;}
     }
-}
+
+    @media screen and (max-width: 800px) {
+        @-webkit-keyframes headerAnim {
+            from {top: 0px;}
+            to {top: -150px;}
+        }
+        @keyframes headerAnim {
+            from {top: 0px;}
+            to {top: -150px;}
+        }
+    }
 
 
-/* --- +++ --- */
 /* --- --- --- --- */
+/* --- content adjustments --- */
 .workContent {
     height: 100%;
 	width: 99%;
     position: absolute;
     top: 0;
     bottom: 0;
+    display: flex;
+    overflow: hidden;
 }
 
 /* --- +++ --- */
@@ -58,22 +61,146 @@
 
 
 /* --- --- --- --- */
-/* --- Content --- */
-.workText {
-    margin-top: 70px;
+/* --- Work Content --- */
+.workBox {
+    height: 100%;
+    width: 100%;
+    margin-top: 0px;
     z-index: 50;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 }
 
 .workFrame {
-    -webkit-clip-path: polygon(10% 20%, 90% 20%, 90% 90%, 10% 90%);
-    clip-path: polygon(10% 20%, 90% 20%, 90% 90%, 10% 90%);
-    height: 100%;
-    width: 100%;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     background-size: cover;
     background-attachment: fixed;  
-    background-position: center center;  
+    background-position: center center; 
+
+    height: 80%;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 }
-.workPic {
+
+/* --- --- --- ---*/
+/* --- Animations workchanges --- */
+.workNextA{
+    -webkit-animation: aniNextWA 1s forwards;
+    animation: aniNextWA 1s forwards;
+}
+    @-webkit-keyframes aniNextWA {
+        0% {top: 0%;}
+        50% {height: 100%;}
+        100% {top: -100%; height: 50%;}
+    }
+    @keyframes aniNextWA {
+        0% {top: 0%;}
+        50% {height: 100%;}
+        100% {top: -100%; height: 0%;}
+    }
+.workNextB{
+    -webkit-animation: aniNextWB 1s forwards;
+    animation: aniNextWB 1s forwards;
+}
+    @-webkit-keyframes aniNextWB {
+        0% {top: 100%;}
+        50% {}
+        100% {top: 0%;}
+    }
+    @keyframes aniNextWB {
+        0% {top: 100%;}
+        50% {}
+        100% {top: 0%;}
+    }
+.workPrevA{
+    -webkit-animation: aniPrevWA 1s forwards;
+    animation: aniPrevWA 1s forwards;
+}
+    @-webkit-keyframes aniPrevWA {
+        0% {top: 0%;}
+        50% {height: 100%;}
+        100% {top: 100%; height: 50%;}
+    }
+    @keyframes aniPrevWA {
+        0% {top: 0%;}
+        50% {height: 100%;}
+        100% {top: 100%; height: 50%;}
+    }
+.workPrevB{
+    -webkit-animation: aniPrevWB 1s forwards;
+    animation: aniPrevWB 1s forwards;
+}
+    @-webkit-keyframes aniPrevWB {
+        0% {top: -100%;}
+        50% {}
+        100% {top: 0%;}
+    }
+    @keyframes aniPrevWB {
+        0% {top: -100%;}
+        50% {}
+        100% {top: 0%;}
+    }
+.workShake{
+    -webkit-animation: aniShakeW 0.5s forwards;
+    animation: aniShakeW 0.5s forwards;
+}
+    @-webkit-keyframes aniShakeW {
+        0% {top: 0%;}
+        25% {top: 2%;}
+        50% {}
+        75% {top: -2%;}
+        100% {top: 0%;}
+    }
+    @keyframes aniShakeW {
+        0% {top: 0%;}
+        25% {top: 2%;}
+        50% {}
+        75% {top: -2%;}
+        100% {top: 0%;}
+    }
+
+/* --- --- --- ---*/
+/* --- Work pictures --- */
+.workPic0 {
+    background-image: url(http://images.nationalgeographic.com/wpf/media-live/photos/000/883/cache/macaskill-mountain-biking-scotland_88360_990x742.jpg); 
+}
+.workPic1 {
+    background-image: url(http://images.nationalgeographic.com/wpf/media-live/photos/000/888/cache/sailfish-isla-mujeres-mexico_88866_990x742.jpg); 
+}
+.workPic2 {
+    background-image: url(http://images.nationalgeographic.com/wpf/media-live/photos/000/409/cache/ice-canopy-japan-skerry_40982_990x742.jpg); 
+}
+.workPic3 {
     background-image: url(http://images.nationalgeographic.com/wpf/media-live/photos/000/895/cache/girl-swimming-underwater_89539_990x742.jpg); 
+}
+
+/* --- --- --- ---*/
+/* --- Work small descriptions ---*/
+.workDesc {
+    text-align: center;
+    padding: 5%;
+    display: block;
+    background-color: rgba(41, 40, 40, 0.5);
+}
+.workDesc0 {
+    display: block;
+}
+.workDesc1 {
+    display: none;
+}
+.workDesc2 {
+    display: none;
+}
+.workDesc3 {
+    display: none;
 }

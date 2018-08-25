@@ -92,9 +92,32 @@
             </div>      
         </div>
         
-        <div class="workText">                
-            <div class="workFrame workPic">
-                <p>Quality Content right here!</p>
+        <div class="workBox">                
+            <div class="workFrame workPic0">
+                <ul class="workDesc">
+                    <li class="workDesc0">
+                        <p>----- Chap 1 -----</p>
+                        <p>----- ----- ----- ----- -----</p>
+                        <p>Quality Content right here!</p>
+                    </li>
+                    <li class="workDesc1">
+                        <p>----- Chap 2 -----</p>
+                        <p>----- ----- ----- ----- -----</p>
+                        <p >Umpalumpa</p>
+                    </li>
+                    <li class="workDesc2">
+                        <p>----- Chap 3 -----</p>
+                        <p>----- ----- ----- ----- -----</p>
+                        <p>1234567890987623567854323456</p>
+                    </li>
+                    <li class="workDesc3">
+                        <p>----- Chap 4 -----</p>
+                        <p>----- ----- ----- ----- -----</p>
+                        <p>fsyfrgfdxfrsfcdfew</p>
+                        <p>fakdfksadöamdösalmd</p>
+                    </li>
+                </ul>
+                
             </div>
         </div>
     </div>
@@ -104,6 +127,7 @@
     </footer>-->
     
     <!--------------- Content Scripts --------------->
+    <!--------------- $(".content").css({"background-color": "red"}); --------------->  
     <script type="text/javascript">
         
         //--- --- --- ---
@@ -118,19 +142,84 @@
         //--- --- --- ---
         //--- next work --- 
         var workNumber = 0;
-        $(window).bind('mousewheel DOMMouseScroll', function(event){
-            if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
-                // scroll up
-                $(".content").css({"background-color": "red"});
-            }
-            else {
-                // scroll down
-                $(".content").css({"background-color": "green"});
-            }
-        });
-        function nextWork()  {}
-        function prevWork()  {}
+        var lastWorkNumber= 3;
+        var workAnimation = false;
         
+        //--- next/prev work by scrolling and TODO swiping--- 
+        $(window).bind('mousewheel DOMMouseScroll', function(event){
+            if (workAnimation === false) {
+                workAnimation = true;
+                if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
+                    //--- scroll up
+                    if (workNumber === 0) {
+                        endWork();  
+                    } 
+                    else {
+                        prevWork();  
+                    }             
+                } else {
+                    //--- scroll down
+                    if (workNumber === lastWorkNumber) {
+                        endWork();  
+                    } 
+                    else {
+                        nextWork();  
+                    }
+                }
+                //--- wait till ready for next input
+                setTimeout(function(){workAnimation = false}, 1400);
+            }    
+        });        
+            
+        //--- remove work animation classes --- 
+        function cleanStep() {
+            $(".workBox").removeClass("workNextA");
+            $(".workBox").removeClass("workNextB");
+            $(".workBox").removeClass("workPrevA");
+            $(".workBox").removeClass("workPrevB");
+        }
+        
+        //--- animation next work --- 
+        function nextWork()  {
+            cleanStep(); 
+            //--- animation part old ---
+            $(".workBox").addClass("workNextA");
+            //--- animation part new ---
+            setTimeout(function(){
+                $(".workFrame").removeClass("workPic"+(workNumber++));
+                $(".workFrame").addClass("workPic"+(workNumber)); 
+                $(".workBox").addClass("workNextB");
+                //--- get work description ---
+                $(".workDesc"+(workNumber-1)).css({"display": "none"});
+                $(".workDesc"+(workNumber)).css({"display": "block"});
+            }, 600);
+            
+        }
+        
+        //--- animation prev work --- 
+        function prevWork()  {
+            cleanStep();   
+            //--- animation part old ---
+            $(".workBox").addClass("workPrevA");
+            //--- animation part new ---
+            setTimeout(function(){
+                $(".workFrame").removeClass("workPic"+(workNumber--));
+                $(".workFrame").addClass("workPic"+(workNumber));
+                $(".workBox").addClass("workPrevB");
+                //--- get work description ---
+                $(".workDesc"+(workNumber+1)).css({"display": "none"});
+                $(".workDesc"+(workNumber)).css({"display": "block"});
+            }, 600);
+        }
+        
+        //--- animation no next/prev work --- 
+        function endWork()  {
+            cleanStep();
+            $(".workBox").addClass("workShake");
+            setTimeout(function(){
+                $(".workBox").removeClass("workShake");
+            }, 600);      
+        }
 
      
     </script>
@@ -212,16 +301,13 @@
         //--- --- --- ---
         //--- switch to nav-only-header when not at page top ---
         $(window).on("scroll", function() {
-            if($(window).scrollTop() > 100 && $(window).width() > 800)
-            {
+            if($(window).scrollTop() > 100 && $(window).width() > 800) {
                 $(".headBot").css({"position": "fixed","top": "0px","width": "99%"});
             } 
-            else if($(window).scrollTop() > 150 && $(window).width() <= 800)
-            {
+            else if($(window).scrollTop() > 150 && $(window).width() <= 800) {
                 $(".headBot").css({"position": "fixed","top": "0px","width": "99%"});
             } 
-            else 
-            {
+            else {
                 $(".headBot").css({"position": "relative","width": "100%"});
             }   
         });
