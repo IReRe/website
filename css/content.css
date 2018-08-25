@@ -3,17 +3,21 @@
 .content {
 	width: 100%;
 	height: 5400px;
-	background-color: #363534;
+    background-color: #363534;
     color:  #EDEDED;
     font-weight: 100;
     position: relative;
     z-index: 0;
 }
+.contentLight{
+    background-color: #EDEDED;
+    color: #363534;
+}
 
 /* --- --- --- --- */
 /* --- Background --- */
 .background {
-    z-index: 10;
+    z-index: 0;
     height: 100%;
     width: 100%;
     position: absolute;
@@ -25,6 +29,7 @@
     background-attachment: fixed;  
     background-position: center center;    
 }
+
 /* --- Frames --- */
 .frame1 {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
@@ -73,8 +78,6 @@
 }
 .bpic6{
     background-image: url(http://images.nationalgeographic.com/wpf/media-live/photos/000/816/cache/lava-crater-volcano-hawaii_81648_990x742.jpg);   
-}
-.bpic7{
 }
 
 .picShow div {

@@ -7,6 +7,7 @@ header {
     position: relative;
     max-width: none;
 }
+
 /* --- Header Top --- */
 .headTop {
     height: 100px;
@@ -123,8 +124,8 @@ header {
 	height: 50px;
 	background-color: #292828;
     overflow: hidden; 
+    position: sticky;
 }
-
 /* --- Header Bot Menu --- */
 .menu ul {
     margin-left: auto;
@@ -136,6 +137,20 @@ header {
 }
 
 /* --- Header Bot Mobile Menu --- */
+.mobileMenu {}
+.mobileMenu ul {
+    display: flex;
+    flex-direction: column;
+}
+.mobileMenu ul li {
+    float: none;
+}
+.mobileMenu ul li:nth-child(3) {order: 7;}
+.mobileMenu ul li:nth-child(4) {order: 6;}
+.mobileMenu ul li:nth-child(5) {order: 5;}
+.mobileMenu ul li:nth-child(6) {order: 4;}
+.mobileMenu ul li:nth-child(7) {order: 3;}
+
 .mobileMenuButton {
     display: none; 
     position: absolute;
@@ -143,9 +158,7 @@ header {
     left: 0;
     right: 0;   
 }
-.menuButton p:nth-child(2){
-    display: none; 
-}
+
 .nightMode p:nth-child(1){
     letter-spacing: 10.5px;
 }

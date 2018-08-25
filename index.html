@@ -4,7 +4,7 @@
 <head>
 	<title>Cloudwarp</title>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<meta name="viewport" content="width=device-width, initial-scale=0.6, minimum-scale=0.1, maximum-scale=1.0, user-scalable=no"/>
     <meta name="description" content=""/>
     
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -52,7 +52,7 @@
             <nav class="menu">
                 <ul>
                     <li class="mobileMenuButton">
-                        <a class="menuButton expandMenu" href="javascript:void(0)">
+                        <a class="menuButton switchButtonIcon expandMenu" href="javascript:void(0)">
                         <p>☰</p>
                         <p>✕</p>
                         </a>
@@ -60,7 +60,7 @@
                     <li><a class="menuButton" href="">
                         <p>_</p>
                     </a></li> 
-                    <li><a class="menuButton nightMode" href="javascript:void(0)">
+                    <li><a class="menuButton switchButtonIcon nightMode" href="javascript:void(0)">
                         <p>☾</p>
                         <p>☼</p>
                     </a></li> 
@@ -111,7 +111,7 @@
         //--- --- --- ---
         //--- XXX ---
         var TestState = 2;
-        var picNumber = 7;
+        var picNumber = 6;
         $(".picShow").click(function() {
             TestState++;
             $(".picShow div").removeClass("bpic"+(TestState));
@@ -151,19 +151,19 @@
         var nightModeState = 0;
         $(".nightMode").click(function() {
             nightModeState++;
-            //---state: even->nightMode uneven->lightMode ---
+            //--- state: even->nightMode uneven->lightMode ---
             var isEven = function(x) {
                 return (x % 2 === 0) ? true : false;
             };
+            //--- activate light mode ---
             if (isEven(nightModeState) === false) {
-                $(".content").css({"background-color": "#EDEDED", "color": "#363534"});
-                $(".nightMode p").css({"display": "none"});
-                $(".nightMode p:nth-child(2)").css({"display": "block"}); 
+                $(".content").addClass("contentLight");
+                $(".nightMode").addClass("switchButtonIconOther");
             }
+            //--- activate dark mode ---
             else if (isEven(nightModeState) === true) {
-                $(".content").css({"background-color": "#363534", "color": "#EDEDED"});  
-                $(".nightMode p").css({"display": "none"});
-                $(".nightMode p:nth-child(1)").css({"display": "block"}); 
+                $(".content").removeClass("contentLight"); 
+                $(".nightMode").removeClass("switchButtonIconOther");
             }
         });
 
@@ -173,25 +173,14 @@
         var mobileMenuState = 0;
         //--- expand / collapse mobile menu ---
         function expand() {
-            $(".headBot").css({"overflow": "visible"});
-            $(".menu ul li").css({"float": "none"});
-            $(".expandMenu p").css({"display": "none"});
-            $(".expandMenu p:nth-child(2)").css({"display": "block"});
-
-            $(".menu ul").css({"display": "flex", "flex-direction": "column"});
-            $(".menu ul li:nth-child(3)").css({"order": "7"});
-            $(".menu ul li:nth-child(4)").css({"order": "6"});
-            $(".menu ul li:nth-child(5)").css({"order": "5"});
-            $(".menu ul li:nth-child(6)").css({"order": "4"});
-            $(".menu ul li:nth-child(7)").css({"order": "3"});
+            $(".headBot").css({"overflow": "visible"});         
+            $(".expandMenu").addClass("switchButtonIconOther");
+            $(".menu").addClass("mobileMenu");
         }
         function collapse() {
             $(".headBot").css({"overflow": "hidden"});
-            $(".menu ul li").css({"float": "right"});
-            $(".expandMenu p").css({"display": "none"});
-            $(".expandMenu p:nth-child(1)").css({"display": "block"}); 
-
-            $(".menu ul").css({"display": "block"});
+            $(".expandMenu").removeClass("switchButtonIconOther");
+            $(".menu").removeClass("mobileMenu");
         }         
         //--- expand / collapse mobile menu based on current mobileMenuState ---
         $(".expandMenu").click(function() {
@@ -218,8 +207,9 @@
         //TODO
 
 
-        //--- --- --- ---
+        //--- --- no need anymore --- ---
         //--- switch to nav-only-header when not at page top ---
+        /*
         $(window).on("scroll", function() {
             if($(window).scrollTop() > 100 && $(window).width() > 800) {
                 $(".headBot").css({"position": "fixed","top": "0px","width": "99%"});
@@ -230,10 +220,10 @@
             else {
                 $(".headBot").css({"position": "relative","width": "100%"});
             }   
-        });
+        });*/
 
 
-        //--- --- --- ---
+        //--- --- possible feature --- ---
         //--- Hide nav-only-header when scrolling down ---
         /*
         var didScroll;
@@ -249,7 +239,7 @@
                 hasScrolled();
                 didScroll = false;
             }
-        }, 50);
+        }, 200);
 
         function hasScrolled() {
             var st = $(this).scrollTop();
@@ -257,12 +247,12 @@
             if(Math.abs(lastScrollTop - st) <= delta)
                 return;
             if (st > lastScrollTop && st > navbarHeight){
-            // Scroll Down "display": "none"
-                $('.headBot').css({"display": "none"});
+            // Scroll Down
+                $('.headBot').addClass("displayNone");
             } else {
                 // Scroll Up
                 if(st + $(window).height() < $(document).height()) {
-                    $('.headBot').css({"display": "block"});
+                    $('.headBot').removeClass("displayNone");
                 }
             }
             lastScrollTop = st;

@@ -9,9 +9,29 @@ body {
 	margin-right: auto;
 	font-family: 'Roboto', sans-serif;
     font-weight: 300;
+    /*touch-action: none;
+    overscroll-behavior: none;*/
 }
 /*--------------------------------------------------------*/
 #page-wrapper{
 
 }
 /*--------------------------------------------------------*/
+/*-----------------jquery general classes--------------------*/
+.displayNone {
+    display: none;
+}
+
+.switchButtonIcon p:nth-child(1){
+    display: block; 
+}
+.switchButtonIcon p:nth-child(2){
+    display: none; 
+}
+
+.switchButtonIconOther p:nth-child(1){
+    display: none; 
+}
+.switchButtonIconOther p:nth-child(2){
+    display: block; 
+}
