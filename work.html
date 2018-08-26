@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Cloudwarp-Work</title>
+	<title>CloudIce - Previous Work</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=0.6, minimum-scale=0.1, maximum-scale=1.0, user-scalable=no"/>
     <meta name="description" content=""/>
@@ -43,7 +43,7 @@
                 <a class="logoName" href="index.html">
                     <h1>Cl</h1>
                     <h1>o</h1>
-                    <h1>udwarp</h1>  
+                    <h1>udIce</h1>  
                 </a>
             </div>
             
@@ -53,19 +53,17 @@
         <div class="headBot">           
             <nav class="menu">
                 <ul>
-                    <li class="mobileMenuButton">
-                        <a class="menuButton switchButtonIcon expandMenu" href="javascript:void(0)">
+                    <li class="mobileMenuButton"><span class="menuButton switchButtonIcon expandMenu">
                         <p>☰</p>
                         <p>✕</p>
-                        </a>
-                    </li>                     
+                    </span></li>                     
                     <li><a class="menuButton" href="">
                         <p>_</p>
                     </a></li> 
-                    <li><a class="menuButton switchButtonIcon nightMode" href="javascript:void(0)">
+                    <li><span class="menuButton switchButtonIcon nightMode">
                         <p>☾</p>
                         <p>☼</p>
-                    </a></li> 
+                    </span></li> 
                     <li><a class="menuButton" href="">
                         About Me
                     </a></li>
@@ -84,6 +82,7 @@
     </header>
     
     <div class="content workContent">
+        
         <div class="background">
             <!--div class="fullscreen-bg">
                 <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
@@ -92,34 +91,49 @@
             </div-->      
         </div>
         
-        <div class="workBox">                
-            <div class="workFrame workPic0">
-                <!--a href="javascript:void(0)" class="testNext"></a-->
-                <ul class="workDesc">
-                    <li class="workDesc1">
-                        <p>----- Chap 1 -----</p>
-                        <p>----- ----- ----- ----- -----</p>
-                        <p>Quality Content right here!</p>
-                    </li>
-                    <li class="workDesc2">
-                        <p>----- Chap 2 -----</p>
-                        <p>----- ----- ----- ----- -----</p>
-                        <p >Umpalumpa humpa abcdefghi</p>
-                    </li>
-                    <li class="workDesc3">
-                        <p>----- Chap 3 -----</p>
-                        <p>----- ----- ----- ----- -----</p>
-                        <p>1234567890987623567854323456</p>
-                    </li>
-                    <li class="workDesc4">
-                        <p>----- Chap 4 -----</p>
-                        <p>----- ----- ----- ----- -----</p>
-                        <p>fsyfrgfdxfrsfcdfew</p>
-                        <p>fakdfksadöamdösalmd</p>
-                    </li>
-                </ul>
+        <!--------------- Selection of Work --------------->
+        
+        <div class="workShortcutSide">
+            <div class="workShortcutBar">
+                
+                <span class="workShortcut"><div class="workShortcutButton">
+                    <div class="workShortcutButtonDesign"></div>
+                </div></span>
+                
+                <span class="workShortcut"><div class="workShortcutButton">
+                    <div class="workShortcutButtonDesign"></div>
+                </div></span>
+                
+                <span class="workShortcut"><div class="workShortcutButton">
+                    <div class="workShortcutButtonDesign"></div>
+                </div></span>
+                
+                <span class="workShortcut"><div class="workShortcutButton">
+                    <div class="workShortcutButtonDesign"></div>
+                </div></span>
                 
             </div>
+        </div>
+        
+        <div class="workBox"> 
+            
+            <div class="workFrame workPic0 greyFilter">                
+                <ul class="workDesc workDescDeco">
+                    <li class="workDesc1"><span class="expandWork">
+                        <p>Work 1</p>
+                    </span></li>
+                    <li class="workDesc2"><span class="expandWork">
+                        <p>Work 2</p>
+                    </span></li>
+                    <li class="workDesc3"><span class="expandWork">
+                        <p>Work 3</p>
+                    </span></li>
+                    <li class="workDesc4"><span class="expandWork">
+                        <p>Work 4</p>
+                    </span></li>
+                </ul>                
+            </div>            
+            
         </div>
         
     </div>
@@ -129,29 +143,44 @@
     </footer>-->
     
     <!--------------- Content Scripts --------------->
-    <!--------------- $(".content").css({"background-color": "red"}); --------------->  
+    <!--------------- $(".content").css({"background-color": "red"}); 
+    setTimeout(function(){}, 2000);
+    --------------->  
     <script type="text/javascript">
-        
+            
         //--- --- --- ---
         //--- On load animations ---
         $(document).ready(function() {
+            $(".workDesc").removeClass("workDescDeco");
             nextWork();
             setInterval(function() {
+                $(".workDesc").addClass("workDescDeco");
                 $("header").addClass("headerFade"); 
+                
+                $(".workShortcutBar").css({"display": "block"});
+                $(".workShortcutSide").addClass("workShortcutSideSwooshIn");
             }, 600);
+            
+            
+            setInterval(function() {
+                buttonDesignLoad();
+            },600);
         });
         
         
         //--- --- --- ---
         //--- work showcase --- 
         var workNumber = 0;
-        var lastWorkNumber= 4;
+        var nextWorkNumber = 1;
+        var finalWorkNumber= 4;
         var workAnimation = false;
-        var scrollUp = true;      
+        var scrollUp = true;    
+        var startY;
+        var endY;
                 
         //--- trigger next/prev work by scrolling ---        
         $(window).bind("mousewheel DOMMouseScroll", function(eventMouse){
-            if (workAnimation === false) {
+            if (workAnimation === false && expandedWork === false) {
                 if (eventMouse.originalEvent.wheelDelta > 0 || eventMouse.originalEvent.detail < 0) {
                     scrollUp = true;
                 } else {
@@ -163,18 +192,18 @@
         
         //--- trigger next/prev swipe up/down --- 
         $(document).on("touchstart", "body", function (eventTouch) {
-            if (workAnimation === false) {   
+            if (workAnimation === false && expandedWork === false) {   
                 //eventTouch.preventDefault()
-                var startY = eventTouch.originalEvent.touches[0].clientY;
+                startY = eventTouch.originalEvent.touches[0].clientY;
                 
                 $(document).on("touchend", "body",function (eventTouch) {
                     if (workAnimation === false) {  
-                        var endY = eventTouch.originalEvent.changedTouches[0].clientY;
-                        if ( (startY-endY) <= -300) {
+                        endY = eventTouch.originalEvent.changedTouches[0].clientY;
+                        if ( (startY-endY) <= -150) {
                             // moved down
                             scrollUp = true;
                             workAni();  
-                        } else if( (startY-endY) >= 300) {
+                        } else if( (startY-endY) >= 150) {
                             // moved up
                             scrollUp = false; 
                             workAni();  
@@ -194,14 +223,16 @@
                     endWork();  
                 } 
                 else {
+                    nextWorkNumber = workNumber - 1;
                     prevWork();  
                 }             
             } else {
                 //--- scroll down
-                if (workNumber === lastWorkNumber) {
+                if (workNumber === finalWorkNumber) {
                     endWork();  
                 } 
                 else {
+                    nextWorkNumber = workNumber + 1;
                     nextWork();  
                 }
             }
@@ -225,12 +256,13 @@
             $(".workBox").addClass("workNextA");
             //--- animation part new ---
             setTimeout(function(){
-                $(".workFrame").removeClass("workPic"+(workNumber++));
-                $(".workFrame").addClass("workPic"+(workNumber)); 
+                $(".workFrame").removeClass("workPic"+(workNumber));
+                $(".workFrame").addClass("workPic"+(nextWorkNumber)); 
                 $(".workBox").addClass("workNextB");
                 //--- get work description ---
-                $(".workDesc"+(workNumber-1)).css({"display": "none"});
-                $(".workDesc"+(workNumber)).css({"display": "block"});
+                $(".workDesc"+(workNumber)).css({"display": "none"});
+                $(".workDesc"+(nextWorkNumber)).css({"display": "block"});
+                workNumber = nextWorkNumber;
             }, 600);
         }
         
@@ -241,12 +273,13 @@
             $(".workBox").addClass("workPrevA");
             //--- animation part new ---
             setTimeout(function(){
-                $(".workFrame").removeClass("workPic"+(workNumber--));
-                $(".workFrame").addClass("workPic"+(workNumber));
+                $(".workFrame").removeClass("workPic"+(workNumber));
+                $(".workFrame").addClass("workPic"+(nextWorkNumber));
                 $(".workBox").addClass("workPrevB");
                 //--- get work description ---
-                $(".workDesc"+(workNumber+1)).css({"display": "none"});
-                $(".workDesc"+(workNumber)).css({"display": "block"});
+                $(".workDesc"+(workNumber)).css({"display": "none"});
+                $(".workDesc"+(nextWorkNumber)).css({"display": "block"});
+                workNumber = nextWorkNumber;
             }, 600);
         }
         
@@ -258,8 +291,71 @@
                 $(".workBox").removeClass("workShake");
             }, 600);      
         }
+        
+        
+        //--- --- --- ---
+        //--- work shortcutBar directLink ---
+        var jumpDistWorkNumber   
+        $(".workShortcut").click(function() {
+            if (workAnimation === false && expandedWork === false) {
+                workAnimation = true;
+                nextWorkNumber = ($(this).index()+1);
+                jumpDistWorkNumber = nextWorkNumber-workNumber; 
 
-     
+                if ((jumpDistWorkNumber) > 0) {
+                    nextWork();
+                } else if ((jumpDistWorkNumber) < 0) {
+                    prevWork();
+                } else {
+                    endWork();
+                } 
+                setTimeout(function(){workAnimation = false}, 1400);
+            }
+        });
+        
+        //--- work shortcutBar button animation TODO ---
+        function buttonDesignLoad() {
+            setInterval(function() {
+                $(".workShortcut:nth-child(1) .workShortcutButtonDesign").addClass("workShortcutButtonDesignLoad").css({"display": "block"});  
+            }, 1000);
+            setInterval(function() {
+                $(".workShortcut:nth-child(2) .workShortcutButtonDesign").addClass("workShortcutButtonDesignLoad").css({"display": "block"}); 
+            }, 1500);
+            setInterval(function() {
+                $(".workShortcut:nth-child(3) .workShortcutButtonDesign").addClass("workShortcutButtonDesignLoad").css({"display": "block"}); 
+            }, 2000);
+            setInterval(function() {
+                $(".workShortcut:nth-child(4) .workShortcutButtonDesign").addClass("workShortcutButtonDesignLoad").css({"display": "block"}); 
+            }, 2500);
+        }
+        
+        //--- --- --- ---
+        //--- expand work details --- 
+        var expandedWork = false;
+        
+        //--- greyfilter off/on --- 
+        $(".expandWork").click(function() {
+            if (expandedWork === false) {
+                //$(".workFrame").addClass("smoothTransition");
+                $(".workFrame").addClass("removeGreyFilter");             
+                expandedWork = true;
+            } else {
+                removeFilter();
+            }            
+        });
+        
+        function removeFilter() {
+            $(".workFrame").removeClass("removeGreyFilter");
+            /*setTimeout(function(){
+                $(".workFrame").removeClass("smoothTransition");
+            }, 1000); 2000 on second timeout*/  
+            setTimeout(function(){
+                expandedWork = false;
+            }, 2000);   
+        }
+        
+        
+        
     </script>
     
     <!--------------- Header Scripts --------------->

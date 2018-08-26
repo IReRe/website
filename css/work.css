@@ -1,31 +1,3 @@
-/* --- --- --- --- */
-/* --- Small header +animation --- */
-.headerFade{
-    -webkit-animation: headerAnim 1s forwards;
-    animation: headerAnim 1s forwards;
-}
-    @-webkit-keyframes headerAnim {
-        from {top: 0px;}
-        to {top: -100px;}
-    }
-    @keyframes headerAnim {
-        from {top: 0px;}
-        to {top: -100px;}
-    }
-
-    @media screen and (max-width: 800px) {
-        @-webkit-keyframes headerAnim {
-            from {top: 0px;}
-            to {top: -150px;}
-        }
-        @keyframes headerAnim {
-            from {top: 0px;}
-            to {top: -150px;}
-        }
-    }
-
-
-/* --- --- --- --- */
 /* --- content adjustments --- */
 .workContent {
     height: 100%;
@@ -59,20 +31,16 @@
     height: 100%;
 }*/
 
-
-/* --- --- --- --- */
 /* --- Work Content --- */
 .workBox {
-    height: 100%;
-    width: 100%;
-    margin-top: 0px;
     z-index: 50;
+    height: 100%;
+    width: 80%;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center; 
 }
-
 .workFrame {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
@@ -84,22 +52,18 @@
     background-repeat: no-repeat;
     
     height: 80%;
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
     margin-top: 10%;
     margin-bottom: 5%;
+    position: static;
     
     display: flex;
     justify-content: center;
     align-items: center; 
-    position: static;
-    
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
 }
 
-/* --- --- --- ---*/
 /* --- Animations workchanges --- */
 .workNextA{
     -webkit-animation: aniNextWA 1s forwards;
@@ -176,10 +140,8 @@
         100% {top: 0%;}
     }
 
-/* --- --- --- ---*/
 /* --- Work pictures --- */
-.workPic0 {
-}
+.workPic0 {}
 .workPic1 {
     background-image: url(http://images.nationalgeographic.com/wpf/media-live/photos/000/883/cache/macaskill-mountain-biking-scotland_88360_990x742.jpg); 
 }
@@ -193,15 +155,19 @@
     background-image: url(http://images.nationalgeographic.com/wpf/media-live/photos/000/895/cache/girl-swimming-underwater_89539_990x742.jpg); 
 }
 
-/* --- --- --- ---*/
 /* --- Work small descriptions ---*/
 .workDesc {
     text-align: center;
-    padding: 5%;
     display: block;
     background-color: rgba(41, 40, 40, 0.5);
 }
-
+.workDescDeco{
+    padding: 5% 20% 5% 20%;
+}
+.workDesc p {
+    cursor: pointer;
+    font-size: 50px;
+}
 .workDesc1 {
     display: none;
 }
@@ -215,7 +181,95 @@
     display: none;
 }
 
-.testNext {
+/* --- grey filter --- */
+.greyFilter {    
+    filter: grayscale(80%);
+    -webkit-filter: grayscale(80%);
+    transition: color 2s ease, background 1ms;
+    -webkit-transition: all 2s ease, background 1ms;
+    /*transform: translateZ(0);*/
+   
+}
+.removeGreyFilter {
+    filter: grayscale(0%);
+    -webkit-filter: grayscale(0%);
+}
+
+/* --- expand work description --- */
+.expandWork {
     text-decoration: none;
     color: #EDEDED;
 }
+
+/* --- workframes shortcut bar --- */
+.workShortcutSide {
+    z-index: 100;
+    width: 10%;
+    height: 80%;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    
+    position: relative;
+    display: flex;
+    align-items: center; 
+}
+.workShortcutBar {
+    width: 100%;
+    display: none;
+}
+/* --- workframes shortcut bar animations --- */
+.workShortcutSideSwooshIn {
+    -webkit-animation: aniSwooshInWSB 1s forwards;
+    animation: aniSwooshInWSB 1s forwards;
+}
+    @-webkit-keyframes aniSwooshInWSB {
+        0% {left: -100%;}
+        100% {left: 0%;}
+    }
+    @keyframes aniSwooshInWSB {
+        0% {left: -100%;}
+        100% {left: 0%;}
+    }
+
+/* --- workframes shortcut buttons --- */
+.workShortcutButton {
+    width: 90%;
+    height: 40px;
+    border-top: 5px solid #292828;
+    cursor: pointer;
+    
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.workShortcut:last-child .workShortcutButton {
+    border-bottom: 5px solid #292828;
+}
+
+.workShortcutButtonDesign {
+    background-color: red;
+    width: 90%;
+    height: 80%;
+    padding-right: 10%;
+    position: relative;
+    display: none;
+}
+
+/* --- workframes shortcut buttons --- */
+.workShortcutButtonDesignLoad {
+    -webkit-animation: aniLoadWSB 1s forwards;
+    animation: aniLoadWSB 1s forwards;
+}
+    @-webkit-keyframes aniLoadWSB {
+        0% {left: -100%;}
+        100% {left: 0%;}
+    }
+    @keyframes aniLoadWSB {
+        0% {left: -100%;}
+        100% {left: 0%;}
+    }
+
+

@@ -2,7 +2,7 @@ html {
 }
 
 body {
-    background: black;#292828;
+    background: black;
     width: 99%;
     height: 100%;
     margin-left: auto;
@@ -28,10 +28,17 @@ body {
 .switchButtonIcon p:nth-child(2){
     display: none; 
 }
-
 .switchButtonIconOther p:nth-child(1){
     display: none; 
 }
 .switchButtonIconOther p:nth-child(2){
     display: block; 
+}
+
+/*-----------------unused--------------------*/
+.justPallete{
+    color: #4075E8, #363534, #EDEDED, #292828 
+}
+.smoothTransition {
+    transform: translateZ(0);
 }
