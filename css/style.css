@@ -37,8 +37,8 @@ body {
 
 /*-----------------unused--------------------*/
 .justPallete{
-    color: #4075E8, #363534, #EDEDED, #292828 
+    color: #4075E8, #363534, #EDEDED, #292828, #6DDFFF
 }
-.smoothTransition {
+.smoothTransition { unused
     transform: translateZ(0);
 }

@@ -224,7 +224,6 @@ header {
         from {top: 0px;}
         to {top: -100px;}
     }
-
     @media screen and (max-width: 800px) {
         @-webkit-keyframes headerAnim {
             from {top: 0px;}
@@ -232,6 +231,53 @@ header {
         }
         @keyframes headerAnim {
             from {top: 0px;}
+            to {top: -150px;}
+        }
+    }
+
+/* --- Small header + animation new --- */
+.headerGone{
+    -webkit-animation: headerAnim2 0.5s forwards;
+    animation: headerAnim2 0.5s forwards;
+}
+    @-webkit-keyframes headerAnim2 {
+        from {top: -100px;}
+        to {top: -150px;}
+    }
+    @keyframes headerAnim2 {
+        from {top:-100px;}
+        to {top: -150px;}
+    }
+    @media screen and (max-width: 800px) {
+        @-webkit-keyframes headerAnim2 {
+            from {top: -150px;}
+            to {top: -200px;}
+        }
+        @keyframes headerAnim2 {
+            from {top: -150px;}
+            to {top: -200px;}
+        }
+    }
+
+.headerIn{
+    -webkit-animation: headerAnim3 0.5s forwards;
+    animation: headerAnim3 0.5s forwards;
+}
+    @-webkit-keyframes headerAnim3 {
+        from {top: -150px;}
+        to {top: -100px;}
+    }
+    @keyframes headerAnim3 {
+        from {top:-150px;}
+        to {top: -100px;}
+    }
+    @media screen and (max-width: 800px) {
+        @-webkit-keyframes headerAnim3 {
+            from {top: -200px;}
+            to {top: -150px;}
+        }
+        @keyframes headerAnim3 {
+            from {top: -200px;}
             to {top: -150px;}
         }
     }

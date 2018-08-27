@@ -97,7 +97,7 @@
             <div class="workShortcutBar">
                 
                 <span class="workShortcut"><div class="workShortcutButton">
-                    <div class="workShortcutButtonDesign"></div>
+                    <div class="workShortcutButtonDesign workShortcutButtonActive"></div>
                 </div></span>
                 
                 <span class="workShortcut"><div class="workShortcutButton">
@@ -118,7 +118,7 @@
         <div class="workBox"> 
             
             <div class="workFrame workPic0 greyFilter">                
-                <ul class="workDesc workDescDeco">
+                <ul class="workDesc">
                     <li class="workDesc1"><span class="expandWork">
                         <p>Work 1</p>
                     </span></li>
@@ -136,6 +136,8 @@
             
         </div>
         
+        <div class="workDescBig"></div>
+        
     </div>
     
 	<!--<footer class="singleFooter">
@@ -151,7 +153,10 @@
         //--- --- --- ---
         //--- On load animations ---
         $(document).ready(function() {
-            $(".workDesc").removeClass("workDescDeco");
+            onLoad();
+        });
+        
+        function onLoad() {
             nextWork();
             setInterval(function() {
                 $(".workDesc").addClass("workDescDeco");
@@ -159,14 +164,11 @@
                 
                 $(".workShortcutBar").css({"display": "block"});
                 $(".workShortcutSide").addClass("workShortcutSideSwooshIn");
-            }, 600);
-            
-            
+            }, 600);          
             setInterval(function() {
                 buttonDesignLoad();
-            },600);
-        });
-        
+            }, 600); 
+        }
         
         //--- --- --- ---
         //--- work showcase --- 
@@ -262,7 +264,8 @@
                 //--- get work description ---
                 $(".workDesc"+(workNumber)).css({"display": "none"});
                 $(".workDesc"+(nextWorkNumber)).css({"display": "block"});
-                workNumber = nextWorkNumber;
+                activeWorkSCButton();
+                workNumber = nextWorkNumber;             
             }, 600);
         }
         
@@ -279,6 +282,7 @@
                 //--- get work description ---
                 $(".workDesc"+(workNumber)).css({"display": "none"});
                 $(".workDesc"+(nextWorkNumber)).css({"display": "block"});
+                activeWorkSCButton();
                 workNumber = nextWorkNumber;
             }, 600);
         }
@@ -289,7 +293,8 @@
             $(".workBox").addClass("workShake");
             setTimeout(function(){
                 $(".workBox").removeClass("workShake");
-            }, 600);      
+                workAnimation = false;
+            }, 600);  
         }
         
         
@@ -320,38 +325,87 @@
             }, 1000);
             setInterval(function() {
                 $(".workShortcut:nth-child(2) .workShortcutButtonDesign").addClass("workShortcutButtonDesignLoad").css({"display": "block"}); 
-            }, 1500);
+            }, 1250);
             setInterval(function() {
                 $(".workShortcut:nth-child(3) .workShortcutButtonDesign").addClass("workShortcutButtonDesignLoad").css({"display": "block"}); 
-            }, 2000);
+            }, 1500);
             setInterval(function() {
                 $(".workShortcut:nth-child(4) .workShortcutButtonDesign").addClass("workShortcutButtonDesignLoad").css({"display": "block"}); 
-            }, 2500);
+            }, 1750);
         }
         
+        function activeWorkSCButton() {
+            $(".workShortcut:nth-child("+workNumber+") .workShortcutButtonDesign").removeClass("workShortcutButtonActive");
+            $(".workShortcut:nth-child("+nextWorkNumber+") .workShortcutButtonDesign").addClass("workShortcutButtonActive");
+
+        }
         //--- --- --- ---
         //--- expand work details --- 
         var expandedWork = false;
         
         //--- greyfilter off/on --- 
+        
         $(".expandWork").click(function() {
             if (expandedWork === false) {
-                //$(".workFrame").addClass("smoothTransition");
-                $(".workFrame").addClass("removeGreyFilter");             
-                expandedWork = true;
+                addFilter()  
             } else {
                 removeFilter();
             }            
         });
         
+        function addFilter() {
+            $(".workFrame").addClass("removeGreyFilter");             
+            expandedWork = true;
+
+             $(".workShortcutSide").addClass("workShortcutSideSwooshOut");
+
+            setTimeout(function(){
+                $(".workContent").addClass("workContentLargeDesc");  
+            }, 1000); 
+
+            setTimeout(function(){    
+                $(".workBox").addClass("workOpenLargeDesc");
+                $("header").addClass("headerGone");
+            }, 2000); 
+
+            setTimeout(function(){                 
+                $(".workShortcutSide").removeClass("workShortcutSideSwooshIn");
+                
+                
+                //$(".workDescBig").css({"display": "block"});
+                
+                
+            }, 3000);
+        }
+            
+            
+            
         function removeFilter() {
             $(".workFrame").removeClass("removeGreyFilter");
-            /*setTimeout(function(){
-                $(".workFrame").removeClass("smoothTransition");
-            }, 1000); 2000 on second timeout*/  
+            
             setTimeout(function(){
+                $(".workBox").addClass("workCloseLargeDesc");
+                $(".workBox").removeClass("workOpenLargeDesc");
+            }, 1000);  
+                   
+            setTimeout(function(){
+                $("header").addClass("headerIn");
+                $(".workShortcutSide").addClass("workShortcutSideSwooshIn");        
+            }, 2000);  
+            
+            setTimeout(function(){
+                $("header").removeClass("headerGone");
+                $(".workShortcutSide").removeClass("workShortcutSideSwooshOut");
+                
+                $("header").removeClass("headerIn");
+                $(".workBox").removeClass("workCloseLargeDesc");
+                
+                $(".workContent").removeClass("workContentLargeDesc"); 
+                
                 expandedWork = false;
-            }, 2000);   
+            }, 3000);  
+          
+     
         }
         
         
