@@ -62,7 +62,7 @@ body {
     width: 100%;
     margin-left: 0%;
     margin-right: 0%;
-    margin-top: calc(5% + 50px);
+    margin-top: 10%;
     margin-bottom: 5%;
     position: static;
     
@@ -222,7 +222,6 @@ body {
 .workShortcutBar {
     width: 100%;
     display: none;
-    margin-top: 50px;
 }
 
 /* --- workframes shortcut bar animations --- */
