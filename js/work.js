@@ -2,7 +2,6 @@ function workFunction() {
     //--- --- --- ---
     //--- On load animations ---
     $(document).ready(function() {
-        $(".content").addClass("contentLight"); //lightmode
         onLoad();
     });
 
@@ -84,7 +83,7 @@ function workFunction() {
 
             //--- work shortcutBar directLink ---
             var jumpDistWorkNumber;   
-            $(".workShortcut").click(function() {
+            $(".workShortcutButton").click(function() {
                 if (workAnimation === false) {
                     workAnimation = true;
                     t = 1200;
@@ -145,6 +144,19 @@ function workFunction() {
                 $(".workBox").removeClass("workPrevB");
             }
 
+            //--- get work picture and description ---
+            function changeWorkPicDesc() {
+                
+                $(".workFrame").removeClass("workPic"+workNumber);
+                $(".workFrame").addClass("workPic"+nextWorkNumber);
+
+                $(".workDesc p:nth-child("+workNumber+")").css({"display": "none"});
+                $(".workDesc p:nth-child("+nextWorkNumber+")").css({"display": "block"});
+
+                activeWorkSCButton();
+                workNumber = nextWorkNumber;   
+            }
+    
             //--- animation next work --- 
             function nextWork()  {
                 cleanStep(); 
@@ -152,14 +164,8 @@ function workFunction() {
                 $(".workBox").addClass("workNextA");
                 //--- animation part new ---
                 setTimeout(function(){
-                    $(".workFrame").removeClass("workPic"+(workNumber));
-                    $(".workFrame").addClass("workPic"+(nextWorkNumber)); 
                     $(".workBox").addClass("workNextB");
-                    //--- get work description ---
-                    $(".workDesc"+(workNumber)).css({"display": "none"});
-                    $(".workDesc"+(nextWorkNumber)).css({"display": "block"});
-                    activeWorkSCButton();
-                    workNumber = nextWorkNumber;             
+                    changeWorkPicDesc();                    
                 }, 550);
             }
 
@@ -170,17 +176,11 @@ function workFunction() {
                 $(".workBox").addClass("workPrevA");
                 //--- animation part new ---
                 setTimeout(function(){
-                    $(".workFrame").removeClass("workPic"+(workNumber));
-                    $(".workFrame").addClass("workPic"+(nextWorkNumber));
-                    $(".workBox").addClass("workPrevB");
-                    //--- get work description ---
-                    $(".workDesc"+(workNumber)).css({"display": "none"});
-                    $(".workDesc"+(nextWorkNumber)).css({"display": "block"});
-                    activeWorkSCButton();
-                    workNumber = nextWorkNumber;
+                    $(".workBox").addClass("workPrevB");                    
+                    changeWorkPicDesc();
                 }, 550);
             }
-
+             
             //--- animation no next/prev work --- 
             function endWork()  {
                 cleanStep();
@@ -194,26 +194,23 @@ function workFunction() {
             //--- work shortcutBar button animation TODO ---
             function buttonDesignLoad() {
                 setTimeout(function() {
-                    $(".workShortcut:nth-child(1) .workShortcutButtonDesign").addClass("workShortcutButtonDesignLoad").css({"display": "block"});  
+                    $(".workShortcutButton:nth-child(1) .workShortcutButtonDesign").addClass("workShortcutButtonDesignLoad").css({"display": "block"});
                 }, 1000);
                 setTimeout(function() {
-                    $(".workShortcut:nth-child(2) .workShortcutButtonDesign").addClass("workShortcutButtonDesignLoad").css({"display": "block"}); 
+                    $(".workShortcutButton:nth-child(2) .workShortcutButtonDesign").addClass("workShortcutButtonDesignLoad").css({"display": "block"}); 
                 }, 1250);
                 setTimeout(function() {
-                    $(".workShortcut:nth-child(3) .workShortcutButtonDesign").addClass("workShortcutButtonDesignLoad").css({"display": "block"}); 
+                    $(".workShortcutButton:nth-child(3) .workShortcutButtonDesign").addClass("workShortcutButtonDesignLoad").css({"display": "block"}); 
                 }, 1500);
                 setTimeout(function() {
-                    $(".workShortcut:nth-child(4) .workShortcutButtonDesign").addClass("workShortcutButtonDesignLoad").css({"display": "block"}); 
+                    $(".workShortcutButton:nth-child(4) .workShortcutButtonDesign").addClass("workShortcutButtonDesignLoad").css({"display": "block"}); 
                 }, 1750);
             }
 
             function activeWorkSCButton() {
-                $(".workShortcut:nth-child("+workNumber+") .workShortcutButtonDesign").removeClass("workShortcutButtonActive");
-                $(".workShortcut:nth-child("+nextWorkNumber+") .workShortcutButtonDesign").addClass("workShortcutButtonActive");
-
+                $(".workShortcutButton:nth-child("+workNumber+") .workShortcutButtonDesign").removeClass("workShortcutButtonActive");
+                $(".workShortcutButton:nth-child("+nextWorkNumber+") .workShortcutButtonDesign").addClass("workShortcutButtonActive");
             }
-
-
 
 
 
@@ -238,7 +235,7 @@ function workFunction() {
     function expandWork() {
 
         eventWorkSelectOff();
-        //--- close header menu ---
+        //--- close header menu / decomment later when combine all js!---
         //closeMoMenu();
 
         workAnimation = true;
@@ -248,12 +245,15 @@ function workFunction() {
             $(".workContent").addClass("workContentLargeDesc"); 
             //closeMoMenu();
         }, 800); 
-
+        
+        setTimeout(function(){
+            $(".workDesc").removeClass("workDescDeco");
+        }, 1200); 
+        
         setTimeout(function(){
             $(".workDescBig").removeClass("displayNone");
-            $(".workDescBig"+(workNumber)).removeClass("displayNone");
+            $(".workDescBig"+workNumber).removeClass("displayNone");
 
-            $(".workDesc").removeClass("workDescDeco");
             $(".workDesc p").addClass("displayNone");
 
             expandedWork = true;
@@ -266,7 +266,7 @@ function workFunction() {
 
         setTimeout(function(){
             $(".workDescBig").addClass("displayNone");      
-            $(".workDescBig"+(workNumber)).addClass("displayNone"); 
+            $(".workDescBig"+workNumber).addClass("displayNone"); 
 
             $(".workDesc").addClass("workDescDeco");
         }, 800);    

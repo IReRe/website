@@ -1,6 +1,4 @@
 body {
-    /*touch-action: none;
-    overscroll-behavior: none;*/
     overflow-y: hidden;
 }
 
@@ -15,31 +13,10 @@ body {
     overflow: hidden;
 }
 
-/* --- +++ --- */
-/* --- Background Vid --- 
-.fullscreen-bg {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: 0;
-    display: none;
-}
-.fullscreen-bg__video {
-    position: absolute;
-    margin-left: 0.5%;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 99%;
-    height: 100%;
-}*/
 
 /* --- Work Content --- */
 .workBox {
-    z-index: 50;
+    z-index: 400;
     height: 100%;
     width: 80%;
     position: relative;
@@ -62,7 +39,7 @@ body {
     width: 100%;
     margin-left: 0%;
     margin-right: 0%;
-    margin-top: 10%;
+    margin-top: calc(5% + 50px);
     margin-bottom: 5%;
     position: static;
     
@@ -150,7 +127,6 @@ body {
     }
 
 /* --- Work pictures --- */
-.workPic0 {}
 .workPic1 {
     background-image: url(http://images.nationalgeographic.com/wpf/media-live/photos/000/883/cache/macaskill-mountain-biking-scotland_88360_990x742.jpg); 
 }
@@ -174,33 +150,24 @@ body {
     display: block;
     background-color: rgba(41, 40, 40, 0.5);
     transition: all 1.5s ease, padding 1ms;
-    -webkit-transition: all 1.5s ease, padding 1ms;
+    -webkit-transition: all 1.5s ease, padding 1ms;   
 }
+
 .workDescDeco{
     padding: 5% 20% 5% 20%;
 }
 
-.workDesc1 {
+.workDesc p {
     display: none;
 }
-.workDesc2 {
-    display: none;
-}
-.workDesc3 {
-    display: none;
-}
-.workDesc4 {
-    display: none;
-}
+
 
 /* --- grey filter --- */
 .greyFilter {    
     filter: grayscale(80%);
     -webkit-filter: grayscale(80%);
     transition: all 0.8s ease, background 1ms;
-    -webkit-transition: all  0.8s ease, background 1ms;
-    /*transform: translateZ(0);*/
-   
+    -webkit-transition: all  0.8s ease, background 1ms;   
 }
 .removeGreyFilter {
     filter: grayscale(0%);
@@ -209,7 +176,7 @@ body {
 
 /* --- workframes shortcut bar --- */
 .workShortcutSide {
-    z-index: 100;
+    z-index: 600;
     width: 7%;
     height: 100%;
     margin-left: 0%;
@@ -222,6 +189,7 @@ body {
 .workShortcutBar {
     width: 100%;
     display: none;
+    margin-top: 50px;
 }
 
 /* --- workframes shortcut bar animations --- */
@@ -262,14 +230,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center; 
-}
-.workShortcut:last-child .workShortcutButton {
-    border-bottom: 4px solid #292828;
-}
-
-.workShortcut {
     float: left;
-    width: 100%;
+}
+.workShortcutButton:last-child {
+    border-bottom: 4px solid #292828;
 }
 
 .workShortcutButtonDesign {
@@ -302,11 +266,6 @@ body {
         0% {left: -100%;}
         100% {left: 0%;}
     }
-
-
-
-
-
 
 
 /* --- workframes open/close large desc --- */
@@ -343,7 +302,6 @@ body {
 
 /* --- workframes open/close large desc --- */
 .workContentLargeDesc { 
-    z-index: 90;
     display: flex;
     justify-content: center;
     align-items: center; 
@@ -352,30 +310,16 @@ body {
     display: none;
 }
 .workContentLargeDesc .workFrame {
-    z-index: 500;
-    
     -webkit-clip-path: polygon(0 40%, 100% 40%, 100% 100%, 0 100%);
     clip-path: polygon(0 40%, 100% 40%, 100% 100%, 0 100%);    
-    /*
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); */   
     
     margin-bottom: 4%;
     margin-top: 1%;
-    /*background-attachment: scroll;*/
     cursor: default;
 }
-/*.workContentLargeDesc .workDesc {
-    position: absolute;
-    z-index: -10;
-    transition: all 1.5s ease;
-    -webkit-transition: all 1.5s ease;
-}*/
-
-
 
 .workContentLargeReturnButton {
-    z-index: 100;
+    z-index: 600;
     position: fixed;
     top: 0%;
     left: 5%;
@@ -414,12 +358,9 @@ body {
 
 
 
-
-
-
 /* --- work large desc --- */
 .workDescBig { 
-    z-index: 90;
+    z-index: 900;
     transition: all 0.8s ease;
     -webkit-transition: all  0.8s ease;
     
@@ -470,14 +411,14 @@ body {
     color: #EDEDED;
     
     width: 100%;
-    height: 200px;
+    height: 150px;
     
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
 .workDescBig1 {
-    background-color:;
+    
 }
 
 .workDescBigPictureContainer01 {

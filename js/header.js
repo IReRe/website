@@ -1,26 +1,5 @@
 function headerFunction() {
-//--- --- --- ---
-//--- nightmode ---
-    var nightModeState = 0;
-    $(".nightMode").click(function() {
-        nightModeState++;
-        //--- state: even->nightMode uneven->lightMode ---
-        var isEven = function(x) {
-            return (x % 2 === 0) ? true : false;
-        };
-        //--- activate light mode ---
-        if (isEven(nightModeState) === false) {
-            $(".content").addClass("contentLight");
-            $(".nightMode").addClass("switchButtonIconOther");
-        }
-        //--- activate dark mode ---
-        else if (isEven(nightModeState) === true) {
-            $(".content").removeClass("contentLight"); 
-            $(".nightMode").removeClass("switchButtonIconOther");
-        }
-    });
-
-
+    
 //--- --- --- ---
 //--- expand mobile menu ---
     var mobileMenuState = 0;
@@ -70,7 +49,7 @@ function headerFunction() {
     }
 
 
-//--- --- no need anymore but position sticky buggy? --- ---
+//--- --- shouldnt be needed but position sticky buggy? --- ---
 //--- switch to nav-only-header when not at page top ---
 
     $(window).on("scroll", function() {
@@ -85,40 +64,4 @@ function headerFunction() {
         }   
     });
 
-
-//--- --- possible feature --- ---
-//--- Hide nav-only-header when scrolling down ---
-/*
-var didScroll;
-var lastScrollTop = 0;
-var delta = 10;
-var navbarHeight = $('header').outerHeight()+$('.headBot').outerHeight();
-//--- ---
-$(window).scroll(function(event) {
-    didScroll = true;
-});
-setInterval(function() {
-    if (didScroll) {
-        hasScrolled();
-        didScroll = false;
-    }
-}, 200);
-
-function hasScrolled() {
-    var st = $(this).scrollTop();
-    // Make sure they scroll more than delta
-    if(Math.abs(lastScrollTop - st) <= delta)
-        return;
-    if (st > lastScrollTop && st > navbarHeight){
-    // Scroll Down
-        $('.headBot').addClass("displayNone");
-    } else {
-        // Scroll Up
-        if(st + $(window).height() < $(document).height()) {
-            $('.headBot').removeClass("displayNone");
-        }
-    }
-    lastScrollTop = st;
-}
-*/
 };

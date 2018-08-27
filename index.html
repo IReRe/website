@@ -58,10 +58,6 @@
                     <li><a class="menuButton" href="">
                         <p>_</p>
                     </a></li> 
-                    <li><span class="menuButton switchButtonIcon nightMode">
-                        <p>☾</p>
-                        <p>☼</p>
-                    </span></li> 
                     <li><a class="menuButton" href="">
                         About Me
                     </a></li>
@@ -71,7 +67,7 @@
                     <li><a class="menuButton" href="work.html">
                         Work
                     </a></li>
-                    <li><a class="menuButton activeMenu" href="website.html">
+                    <li><a class="menuButton activeMenu" href="index.html">
                         Start
                     </a></li>                 
                 </ul>      
@@ -82,19 +78,16 @@
     <div class="content">
         <div class="background">
             <ul>                
-                <li><div class="angle frame1 bpic1"></div></li>
-                <li><div class="angle frame2 bpic2"></div></li>
-                <li><span class="picShow">
-                    <div class="angle frame3 bpic3"></div>
-                </span></li>
-                <li><div class="angle frame4 bpic4"></div></li>
-                <li><div class="angle frame5 bpic5"></div></li>
-                <li><div class="angle frame6 bpic6"></div></li>
-                
+                <li><div class="angle frame1"></div></li>
+                <li><div class="angle frame2"></div></li>
+                <li><div class="angle frame3"></div></li>
+                <li><div class="angle frame4"></div></li>
+                <li><div class="angle frame5"></div></li>
+                <li><div class="angle frame6"></div></li>
             </ul>           
         </div>
         
-        <div class="text">    
+        <div class="contentText">    
             <p>Quality Content right here!</p>
         </div>
     </div>
@@ -111,39 +104,6 @@
     
     <!--------------- Content Scripts --------------->
     <script type="text/javascript">        
-        //--- --- --- ---
-        //--- XXX ---
-        var TestState = 2;
-        var picNumber = 6;
-        $(".picShow").click(function() {
-            TestState++;
-            $(".picShow div").removeClass("bpic"+(TestState));
-            if (TestState == picNumber) {
-                TestState = 0;
-            }            
-            $(".picShow div").addClass("bpic"+(TestState+1));
-            
-            /*switch(TestState) {
-                case 0:
-                    $(".content").css({"background-color": "white"});
-                    break;
-                case 1:
-                    $(".content").css({"background-color": "green"});
-                    break;
-                case 2:
-                    $(".content").css({"background-color": "yellow"});
-                    break;
-                case 3:
-                    $(".content").css({"background-color": "blue"});
-                    break;
-                case 4:
-                    $(".content").css({"background-color": "black"});
-                    break;
-                case 5:
-                    $(".content").css({"background-color": "purple"});
-                    break;
-            }*/
-        });
         
     </script>
         
