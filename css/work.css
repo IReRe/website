@@ -1,7 +1,13 @@
+body {
+    /*touch-action: none;
+    overscroll-behavior: none;*/
+    overflow-y: hidden;
+}
+
 /* --- content adjustments --- */
 .workContent {
     height: 100%;
-	width: 99%;
+    width: 99%;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -47,6 +53,7 @@
 
     -webkit-background-size: cover;
     background-size: cover;
+    
     background-attachment: fixed;  
     background-position: center center; 
     background-repeat: no-repeat;
@@ -55,75 +62,77 @@
     width: 100%;
     margin-left: 0%;
     margin-right: 0%;
-    margin-top: 10%;
+    margin-top: calc(5% + 50px);
     margin-bottom: 5%;
     position: static;
     
     display: flex;
     justify-content: center;
     align-items: center; 
+    
+    cursor: pointer;
 }
 
 /* --- Animations workchanges --- */
 .workNextA{
-    -webkit-animation: aniNextWA 1s forwards;
-    animation: aniNextWA 1s forwards;
+    -webkit-animation: aniNextWA 0.6s forwards;
+    animation: aniNextWA 0.6s forwards;
 }
     @-webkit-keyframes aniNextWA {
         0% {top: 0%;}
-        50% {height: 100%;}
+        60% {height: 100%;}
         100% {top: -100%; height: 50%;}
     }
     @keyframes aniNextWA {
         0% {top: 0%;}
-        50% {height: 100%;}
+        60% {height: 100%;}
         100% {top: -100%; height: 0%;}
     }
 .workNextB{
-    -webkit-animation: aniNextWB 1s forwards;
-    animation: aniNextWB 1s forwards;
+    -webkit-animation: aniNextWB 0.6s forwards;
+    animation: aniNextWB 0.6s forwards;
 }
     @-webkit-keyframes aniNextWB {
         0% {top: 100%;}
-        50% {}
+        40% {}
         100% {top: 0%;}
     }
     @keyframes aniNextWB {
         0% {top: 100%;}
-        50% {}
+        40% {}
         100% {top: 0%;}
     }
 .workPrevA{
-    -webkit-animation: aniPrevWA 1s forwards;
-    animation: aniPrevWA 1s forwards;
+    -webkit-animation: aniPrevWA 0.6s forwards;
+    animation: aniPrevWA 0.6s forwards;
 }
     @-webkit-keyframes aniPrevWA {
         0% {top: 0%;}
-        50% {height: 100%;}
+        40% {height: 100%;}
         100% {top: 100%; height: 50%;}
     }
     @keyframes aniPrevWA {
         0% {top: 0%;}
-        50% {height: 100%;}
+        40% {height: 100%;}
         100% {top: 100%; height: 50%;}
     }
 .workPrevB{
-    -webkit-animation: aniPrevWB 1s forwards;
-    animation: aniPrevWB 1s forwards;
+    -webkit-animation: aniPrevWB 0.6s forwards;
+    animation: aniPrevWB 0.6s forwards;
 }
     @-webkit-keyframes aniPrevWB {
         0% {top: -100%;}
-        50% {}
+        60% {}
         100% {top: 0%;}
     }
     @keyframes aniPrevWB {
         0% {top: -100%;}
-        50% {}
+        60% {}
         100% {top: 0%;}
     }
 .workShake{
-    -webkit-animation: aniShakeW 0.5s forwards;
-    animation: aniShakeW 0.5s forwards;
+    -webkit-animation: aniShakeW 0.6s forwards;
+    animation: aniShakeW 0.6s forwards;
 }
     @-webkit-keyframes aniShakeW {
         0% {top: 0%;}
@@ -158,6 +167,10 @@
 /* --- Work small descriptions ---*/
 .workDesc {
     text-align: center;
+    text-decoration: none;
+    color: #EDEDED;
+    font-size: 50px;
+    
     display: block;
     background-color: rgba(41, 40, 40, 0.5);
     transition: all 1.5s ease, padding 1ms;
@@ -166,10 +179,7 @@
 .workDescDeco{
     padding: 5% 20% 5% 20%;
 }
-.workDesc p {
-    cursor: pointer;
-    font-size: 50px;
-}
+
 .workDesc1 {
     display: none;
 }
@@ -187,8 +197,8 @@
 .greyFilter {    
     filter: grayscale(80%);
     -webkit-filter: grayscale(80%);
-    transition: color 1s ease, background 1ms;
-    -webkit-transition: all 1s ease, background 1ms;
+    transition: all 0.8s ease, background 1ms;
+    -webkit-transition: all  0.8s ease, background 1ms;
     /*transform: translateZ(0);*/
    
 }
@@ -197,21 +207,13 @@
     -webkit-filter: grayscale(0%);
 }
 
-/* --- expand work description --- */
-.expandWork {
-    text-decoration: none;
-    color: #EDEDED;
-}
-
 /* --- workframes shortcut bar --- */
 .workShortcutSide {
     z-index: 100;
-    width: 9%;
-    height: 80%;
+    width: 7%;
+    height: 100%;
     margin-left: 0%;
-    margin-right: 1%;
-    margin-top: 10%;
-    margin-bottom: 10%;
+    margin-right: 3%;
     
     position: relative;
     display: flex;
@@ -220,11 +222,13 @@
 .workShortcutBar {
     width: 100%;
     display: none;
+    margin-top: 50px;
 }
+
 /* --- workframes shortcut bar animations --- */
 .workShortcutSideSwooshIn {
-    -webkit-animation: aniSwooshInWSB 1s forwards;
-    animation: aniSwooshInWSB 1s forwards;
+    -webkit-animation: aniSwooshInWSB 0.8s forwards;
+    animation: aniSwooshInWSB 0.8s forwards;
 }
     @-webkit-keyframes aniSwooshInWSB {
         0% {left: -100%;}
@@ -236,8 +240,8 @@
     }
 
 .workShortcutSideSwooshOut {
-    -webkit-animation: aniSwooshOutWSB 1.0s forwards;
-    animation: aniSwooshOutWSB 1.0s forwards;
+    -webkit-animation: aniSwooshOutWSB 0.8s forwards;
+    animation: aniSwooshOutWSB 0.8s forwards;
 }
     @-webkit-keyframes aniSwooshOutWSB {
         0% {left: 0%;}
@@ -252,7 +256,7 @@
 .workShortcutButton {
     width: 100%;
     height: 40px;
-    border-top: 5px solid #292828;
+    border-top: 4px solid #292828;
     cursor: pointer;
     
     position: relative;
@@ -261,7 +265,7 @@
     align-items: center; 
 }
 .workShortcut:last-child .workShortcutButton {
-    border-bottom: 5px solid #292828;
+    border-bottom: 4px solid #292828;
 }
 
 .workShortcut {
@@ -270,7 +274,7 @@
 }
 
 .workShortcutButtonDesign {
-    background-color: rgba(0, 0, 0, 0); #EDEDED;
+    background-color: rgba(0, 0, 0, 0);
     border-top: 2px solid #292828;
     border-bottom: 2px solid #292828;
     border-right: 2px solid #292828;
@@ -304,35 +308,37 @@
 
 
 
+
+
 /* --- workframes open/close large desc --- */
 .workOpenLargeDesc {
-    -webkit-animation: aniOpenLD 1.0s forwards;
-    animation: aniOpenLD 1.0s forwards;
+    -webkit-animation: aniOpenLD 0.8s forwards;
+    animation: aniOpenLD 0.8s forwards;
 }
     @-webkit-keyframes aniOpenLD {
         0% {top: 0%; width: 80%;}
-        50% {top: -20%; width: 80%;}
-        100% {top: -20%; width: 100%;}
+        70% {top: -60%; width: 80%;}
+        100% {top: -60%; width: 100%;}
     }
     @keyframes aniOpenLD {
         0% {top: 0%; width: 80%;}
-        50% {top: -20%; width: 80%;}
-        100% {top: -20%; width: 100%;}
+        70% {top: -60%; width: 80%;}
+        100% {top: -60%; width: 100%;}
     }
 
 .workCloseLargeDesc {
-    -webkit-animation: aniCloseLD 1.0s forwards;
-    animation: aniCloseLD 1.0s forwards;
+    -webkit-animation: aniCloseLD 0.8s forwards;
+    animation: aniCloseLD 0.8s forwards;
 }
     @-webkit-keyframes aniCloseLD {
-        0% {top: -20%; width: 100%;}
-        50% {top: -20%; width: 80%;}
+        0% {top: -60%; width: 100%;}
+        30% {top: -60%; width: 80%;}
         100% {top: 0%; width: 80%;}
     }
     @keyframes aniCloseLD {
-        0% {top: -20%; width: 100%;}
-        50% {top: -20%; width: 80%;}
-        100% {top: 0%; width: 80%;}
+        0% {top: -60%; width: 100%;}
+        30% {top: -60%; width: 80%;}
+        100% {top: -100%; width: 80%;}
     }
 
 
@@ -343,20 +349,138 @@
     justify-content: center;
     align-items: center; 
 }
-.workContentLargeDesc .workShortcutSide{
+.workContentLargeDesc .workShortcutSide {
     display: none;
 }
-.workContentLargeDesc .workFrame{
+.workContentLargeDesc .workFrame {
     z-index: 500;
+    
+    -webkit-clip-path: polygon(0 40%, 100% 40%, 100% 100%, 0 100%);
+    clip-path: polygon(0 40%, 100% 40%, 100% 100%, 0 100%);    
+    /*
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);     
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); */   
+    
+    margin-bottom: 4%;
+    margin-top: 1%;
+    /*background-attachment: scroll;*/
+    cursor: default;
+}
+/*.workContentLargeDesc .workDesc {
+    position: absolute;
+    z-index: -10;
+    transition: all 1.5s ease;
+    -webkit-transition: all 1.5s ease;
+}*/
+
+
+
+.workContentLargeReturnButton {
+    z-index: 100;
+    position: fixed;
+    top: 0%;
+    left: 5%;
+    
+    height: 100px;
+    width: 100px;
+    background-color: rgba(41, 40, 40, 0.5);
+    
+    cursor: pointer;
 }
 
-.workDescBig {
-    height: 100%;
+.workContentLargeReturnButtonSwooshIn {
+    -webkit-animation: aniSwooshInWCLRB 0.8s forwards;
+    animation: aniSwooshInWCLRB 0.8s forwards;
+}
+    @-webkit-keyframes aniSwooshInWCLRB {
+        0% {top: -100%;}
+        100% {top: 0%;}
+    }
+    @keyframes aniSwooshInWCLRB {
+        0% {top: -100%;}
+        100% {top: 0%;}
+    }
+.workContentLargeReturnButtonSwooshOut {
+    -webkit-animation: aniSwooshInWCLRBo 1.2s forwards;
+    animation: aniSwooshInWCLRBo 1.2s forwards;
+}
+    @-webkit-keyframes aniSwooshInWCLRBo {
+        0% {top: 0%;}
+        100% {top: -100%;}
+    }
+    @keyframes aniSwooshInWCLRBo {
+        0% {top: 0%;}
+        100% {top: -100%;}
+    }
+
+
+
+
+
+
+/* --- work large desc --- */
+.workDescBig { 
+    z-index: 90;
+    transition: all 0.8s ease;
+    -webkit-transition: all  0.8s ease;
+    
+    position: absolute;
+    
+    /* --- -60% top und -10% marginTop/Bot --- */
+    top: 30%;
+    height: 70%;
     width: 100%;
-    display: none;
-    z-index: 400;
-    background-color: #EDEDED;
-    position: absolute;     
+    background-color: rgba(237, 237, 237, 100);
+    
+    color: #292828;
+    font-weight: 500;
+    font-size: 16px;
+    
+    overflow-y: scroll;
+}
+
+.workDescBigFadeIn {
+    -webkit-animation: aniFadeInWDB 0.8s forwards;
+    animation: aniFadeInWDB 0.8s forwards;
+}
+    @-webkit-keyframes aniFadeInWDB {
+        0% {top: 100%;}
+        100% {top: 30%;}
+    }
+    @keyframes aniFadeInWDB {
+        0% {top: 100%;}
+        100% {top: 30%;}
+    }
+
+.workDescBigFadeOut {
+    -webkit-animation: aniFadeOutWDB 0.8s forwards;
+    animation: aniFadeOutWDB 0.8s forwards;
+}
+    @-webkit-keyframes aniFadeOutWDB {
+        0% {top: 30%;}
+        100% {top: 10%;}
+    }
+    @keyframes aniFadeOutWDB {
+        0% {top: 30%;}
+        100% {top: 100%;}
+    }
+
+
+.workDescBigBlackInfo {
+    background-color:  #292828;
+    color: #EDEDED;
+    
+    width: 100%;
+    height: 200px;
+    
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.workDescBig1 {
+    background-color:;
+}
+
+.workDescBigPictureContainer01 {
+    
 }

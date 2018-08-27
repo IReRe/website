@@ -9,9 +9,8 @@ body {
 	margin-right: auto;
 	font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    /*touch-action: none;
-    overscroll-behavior: none;*/
 }
+
 /*--------------------------------------------------------*/
 #page-wrapper{
 
@@ -33,6 +32,19 @@ body {
 }
 .switchButtonIconOther p:nth-child(2){
     display: block; 
+}
+
+
+/*-----------------image classes--------------------*/
+.imgSizeSqr {
+    width: 400px;
+    height: auto;
+}
+
+.imgPosCent {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
 }
 
 /*-----------------unused--------------------*/

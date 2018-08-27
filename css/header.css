@@ -213,8 +213,8 @@ header {
 
 /* --- Small header + animation --- */
 .headerFade{
-    -webkit-animation: headerAnim 1s forwards;
-    animation: headerAnim 1s forwards;
+    -webkit-animation: headerAnim 0.8s forwards;
+    animation: headerAnim 0.8s forwards;
 }
     @-webkit-keyframes headerAnim {
         from {top: 0px;}
@@ -224,6 +224,11 @@ header {
         from {top: 0px;}
         to {top: -100px;}
     }
+
+.headerFaded{
+    top: -100px;
+}
+
     @media screen and (max-width: 800px) {
         @-webkit-keyframes headerAnim {
             from {top: 0px;}
@@ -233,7 +238,12 @@ header {
             from {top: 0px;}
             to {top: -150px;}
         }
+        .headerFaded{
+            top: -150px;
+        }
     }
+
+
 
 /* --- Small header + animation new --- */
 .headerGone{
