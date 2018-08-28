@@ -14,6 +14,7 @@
     <!--<link href="main.css" type="text/css" media="screen" rel="stylesheet">-->
 	<link href="css/style.css" type="text/css" media="screen" rel="stylesheet">
     
+    <link href="css/loader.css" type="text/css" media="screen" rel="stylesheet">
     <link href="css/header.css" type="text/css" media="screen" rel="stylesheet">
     <link href="css/content.css" type="text/css" media="screen" rel="stylesheet">
     <link href="css/footer.css" type="text/css" media="screen" rel="stylesheet">
@@ -29,6 +30,20 @@
 </head>
 
 <body>
+    
+    <div class="loadingscrn">
+        <div class="loadingscrnAnim">
+            <h1 class>L O A D I N G</h1>
+            <div class="loadingCircles">
+                <div class="loaderC1"></div>
+                <div class="loaderC2"></div>
+                <div class="loaderC3"></div>
+            </div>
+        </div>
+        <div class="loadingscrnTop"></div>
+        <div class="loadingscrnMid"></div>
+        <div class="loadingscrnBot"></div>    
+    </div>
     
 	<header>
         <div class="headTop">
@@ -59,10 +74,10 @@
                         <p>_</p>
                     </a></li> 
                     <li><a class="menuButton" href="">
-                        About Me
+                        Contact
                     </a></li>
                     <li><a class="menuButton" href="">
-                        Art ߷
+                        Art
                     </a></li>
                     <li><a class="menuButton" href="work.html">
                         Work
@@ -98,8 +113,21 @@
     
     <script>
         $(document).ready(function() {
+            preloading();
             headerFunction();
         });
+        
+        function preloading() {
+			$(this).scrollTop(0);
+			$("body").css({"overflow":"hidden"});
+            setTimeout(function() {
+                $(".loadingscrn").addClass("loadedAnimation");
+            }, 1300);  
+            setTimeout(function() {
+                $(".loadingscrn").addClass("displayNone");
+                $("body").css({"overflow":"scroll"});
+            }, 1700+1300);  
+        }
     </script>
     
     <!--------------- Content Scripts --------------->
