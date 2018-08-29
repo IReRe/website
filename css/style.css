@@ -9,8 +9,13 @@ body {
 	margin-right: auto;
 	font-family: 'Roboto', sans-serif;
     font-weight: 300;
+    
+    overflow-y: hidden;
 }
-
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
 /*--------------------------------------------------------*/
 /*-----------------jquery general classes--------------------*/
 .displayNone {
@@ -45,7 +50,7 @@ body {
 
 /*-----------------unused--------------------*/
 .justPallete{
-    color: #4075E8, #363534, #EDEDED, #292828, #6DDFFF
+    color: #4075E8, #363534, #EDEDED, #292828, #6DDFFF, #27f796
 }
 .smoothTransition { unused
     transform: translateZ(0);

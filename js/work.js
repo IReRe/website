@@ -2,10 +2,22 @@ function workFunction() {
     //--- --- --- ---
     //--- On load animations ---
     $(document).ready(function() {
-        onLoad();
+        $(".startToWork").click(function() {
+            onLoadWork();
+        });
     });
-
-    function onLoad() {
+    
+    
+    function onLoadWork() {
+        $(".startContent").css({"display": "none"});
+        $(".workContent").css({"display": "flex"});
+        workStart();
+        
+        $(".menuButton").removeClass("activeMenu");
+        $(".menu ul li:nth-child(5) a").addClass("activeMenu");
+    }
+    
+    function workStart() {
         nextWork();
         setTimeout(function() {
             $(".workDesc").addClass("workDescDeco");
@@ -221,7 +233,7 @@ function workFunction() {
     //--- greyfilter off/on --- 
 
     $(".workFrame").click(function() {
-        if (expandedWork === false) {
+        if (expandedWork === false && workNumber != 0) {
             expandWork();  
         }       
     });

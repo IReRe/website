@@ -1,18 +1,10 @@
-body {
-    overflow-y: hidden;
-}
-
 /* --- content adjustments --- */
 .workContent {
     height: 100%;
-    width: 99%;
+    width: 100%;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    overflow: hidden;
+    display: none;
 }
-
 
 /* --- Work Content --- */
 .workBox {

@@ -1,18 +1,121 @@
-::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
-}
 /* --- --- --- --- */
 /* --- --- --- --- */
 .content {
-	width: 100%;
-	height: 5400px;
-    background-color: #EDEDED;
-    color: #363534;
-    font-weight: 100;
-    position: relative;
     z-index: 400;
+    top: 0;
+    bottom 0;
+    position:absolute;
+    
+	width: 99%;
+	height: 100%;
+    background-color: #EDEDED;
+    color: #292828;
+    font-weight: 100;
+    
+    overflow: hidden;
 }
+
+.startContent {
+    width: 100%;
+	height: 100%;
+}
+
+/* --- Link to Work --- */
+.startToWork {
+    position: absolute;
+    z-index: 800;
+    bottom: 0;
+    width: 100%;
+	height: 80px;
+    border-top: 2px dashed #292828;
+    background-color: #EDEDED;#363534;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.startToWork h2 {
+    position: absolute;
+    z-index: 850;
+    
+    font-size: 28px;
+    font-weight: 100;
+    letter-spacing: 5px;
+    transform: scale(0.9,1.1);
+}
+.picPreviewSlash {
+    -webkit-clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
+    clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
+    height: 100%;
+    width: 29.49%;
+    margin-left: -6%;
+    float: left;
+}
+.picPreviewSlash:first-child {
+    margin-left: 0%;
+}
+.ppp1 {
+    background-color: transparent;   
+}
+
+/* --- Center Piece --- */
+.eyeCatcher {
+    margin-top: 150px;
+    width: 100%;
+    height: calc(100% - 230px);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.ec1 {
+    height: 50px;
+    width: 80%;
+    border-bottom: 1px dashed #292828;
+}
+.ec1A {
+    height: 50px;
+    width: 80px;
+    background-color: black;
+    
+    -webkit-animation: ecA 2.0s infinite;
+	animation: ecA 2.0s infinite;
+}
+.ec2A {
+    height: 50px;
+    width: 80px;
+    background-color: black;
+    
+    -webkit-animation: ecA 1.7s 0.3s infinite;
+	animation: ecA 1.7s 0.3s infinite;
+}
+@keyframes ecA {
+	0% {margin-left: 0%; background-color: transparent;}
+	25% {background-color: #292828;}
+	75% {background-color: #292828;}
+	100% {margin-left: calc(100% - 80px); background-color: transparent;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* --- --- --- --- */
 /* --- Background --- */
@@ -21,6 +124,7 @@
     height: 100%;
     width: 100%;
     position: absolute;
+    overflow: scroll;
 }
 .angle {
     width: 100%;

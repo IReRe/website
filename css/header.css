@@ -52,7 +52,7 @@ header {
     color: white;
 }
 .logoName:hover h1:nth-child(2) {  
-    color: #4075E8;
+    color: #27f796;
 }
 
 /* --- Header Top Slogan --- */
@@ -185,11 +185,11 @@ header {
 
 .menuButton:hover {
     background-color: #363534;
-    color: #4075E8;
+    color: #27f796;
 }
 
 .activeMenu{
-    color: #4075E8;
+    color: #27f796;
 }
 
 /* --- Spacer Menu Point --- */

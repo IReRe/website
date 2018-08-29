@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Rene Reufels - Portfolio</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=0.7, minimum-scale=0.1, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="description" content="Webdesign | Photography | Art | Machine Learning"/>
+    
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    
+	<link href="css/pre/reset.css" type="text/css" media="screen" rel="stylesheet">
+    <!--<link href="main.css" type="text/css" media="screen" rel="stylesheet">-->
+	<link href="css/style.css" type="text/css" media="screen" rel="stylesheet">
+    
+    <link href="css/loader.css" type="text/css" media="screen" rel="stylesheet">
+    <link href="css/header.css" type="text/css" media="screen" rel="stylesheet">
+    <link href="css/content.css" type="text/css" media="screen" rel="stylesheet">
+    <link href="css/footer.css" type="text/css" media="screen" rel="stylesheet">
+    
+    
+    
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="js/header.js"></script>
+    
+	<script src="js/modernizr.js"></script>
+	<script src="js/respond.min.js"></script>
+</head>
+
+<body>
+    
+    <div class="loadingscrn">
+        <div class="loadingscrnAnim">
+            <h1 class>L O A D I N G</h1>
+            <div class="loadingCircles">
+                <div class="loaderC1"></div>
+                <div class="loaderC2"></div>
+                <div class="loaderC3"></div>
+            </div>
+        </div>
+        <div class="loadingscrnTop"></div>
+        <div class="loadingscrnMid"></div>
+        <div class="loadingscrnBot"></div>    
+    </div>
+    
+	<header>
+        <div class="headTop">
+            <div class="logo">
+                <div class="logoImg">
+                    <a href="index.html">
+                        <img src="img/logo.jpg">
+                    </a>         
+                </div>
+                <a class="logoName" href="index.html">
+                    <h1>Cl</h1>
+                    <h1>o</h1>
+                    <h1>udIce</h1>  
+                </a>
+            </div>
+            
+            <p class="slogan">S L O G A N</p>
+        </div>
+        
+        <div class="headBot">           
+            <nav class="menu">
+                <ul>
+                    <li class="mobileMenuButton"><span class="menuButton switchButtonIcon expandMenu">
+                        <p>☰</p>
+                        <p>✕</p>
+                    </span></li>                     
+                    <li><a class="menuButton" href="">
+                        <p>_</p>
+                    </a></li> 
+                    <li><a class="menuButton" href="">
+                        Contact
+                    </a></li>
+                    <li><a class="menuButton" href="">
+                        Art
+                    </a></li>
+                    <li><a class="menuButton" href="index.html">
+                        Work
+                    </a></li>
+                    <li><a class="menuButton activeMenu" href="index.html">
+                        Start
+                    </a></li>                 
+                </ul>      
+            </nav>            
+        </div>
+    </header>
+    
+    <div class="content">
+        <div class="background">
+            <ul>                
+                <li><div class="angle frame1"></div></li>
+                <li><div class="angle frame2"></div></li>
+                <li><div class="angle frame3"></div></li>
+                <li><div class="angle frame4"></div></li>
+                <li><div class="angle frame5"></div></li>
+                <li><div class="angle frame6"></div></li>
+            </ul>           
+        </div>
+        
+        <div class="contentText">    
+            <p>Quality Content right here!</p>
+        </div>
+    </div>
+    
+	<footer>
+        <p>FOOTER: Logo || Legal Copyright Privacy ToS || AboutUs Contact || SiteNav</p>
+    </footer>
+    
+    <script>
+        $(document).ready(function() {
+            preloading();
+            headerFunction();
+        });
+        
+        function preloading() {
+			$(this).scrollTop(0);
+			$("body").css({"overflow":"hidden"});
+            setTimeout(function() {
+                $(".loadingscrn").addClass("loadedAnimation");
+            }, 1300);  
+            setTimeout(function() {
+                $(".loadingscrn").addClass("displayNone");
+                $("body").css({"overflow":"scroll"});
+            }, 1700+1300);  
+        }
+    </script>
+    
+    <!--------------- Content Scripts --------------->
+    <script type="text/javascript">        
+        
+    </script>
+        
+</body>    
+    
+</html>
