@@ -2,11 +2,7 @@ function headerFunction() {
     
 //--- --- --- ---
 //--- expand mobile menu ---
-    var mobileMenuState = 0;
-
-    var isEven = function(x) {
-            return (x % 2 === 0) ? true : false;
-        };
+    var mobileMenuState = false;
 
     //--- expand / collapse mobile menu ---
     function expandMoMenu() {
@@ -22,29 +18,30 @@ function headerFunction() {
 
     //--- expand / collapse mobile menu based on current mobileMenuState ---
     $(".expandMenu").click(function() {
-        mobileMenuState++;
          //---state: even->collapsed uneven->expanded ---
-        if (isEven(mobileMenuState) === false) {
+        if (mobileMenuState === false) {
             expandMoMenu();
+            mobileMenuState = true;
         }
-        else if (isEven(mobileMenuState) === true) {
+        else if (mobileMenuState === true) {
             collapseMoMenu();
+            mobileMenuState = false;
         }
     });   
     //--- collapse mobile menu when screen wider than 800 (scrollbar-length 17) ---
     $(window).on("resize", function() {
         if ($(window).width() > 800) {
             collapseMoMenu();
-            mobileMenuState = 0;
+            mobileMenuState = false;
        }
     });
     //--- collapse mobile menu on click outside menu ---
     //TODO
 
     function closeMoMenu() {
-        if (isEven(mobileMenuState) === false) {
-            mobileMenuState++;
+        if (mobileMenuState === true) {
             collapseMoMenu();
+            mobileMenuState = false;
         }
     }
 

@@ -1,20 +1,32 @@
 function workFunction() {
+    
+    var finalWorkNumber= 4;
+    var workNumber = 0;
+    var nextWorkNumber;
+
     //--- --- --- ---
     //--- On load animations ---
     $(document).ready(function() {
-        $(".startToWork").click(function() {
-            onLoadWork();
+        $(".startToWork, .menu ul li:nth-child(5) div").click(function() {
+            if (workNumber === 0) {
+                //closeMoMenu();
+                onLoadWork();
+                $(".menu ul li:nth-child(6) div").click(function() {
+                    workEnd();
+                });
+            }
         });
     });
     
     
     function onLoadWork() {
+        nextWorkNumber = 1;
         $(".startContent").css({"display": "none"});
         $(".workContent").css({"display": "flex"});
         workStart();
         
         $(".menuButton").removeClass("activeMenu");
-        $(".menu ul li:nth-child(5) a").addClass("activeMenu");
+        $(".menu ul li:nth-child(5) div").addClass("activeMenu");
     }
     
     function workStart() {
@@ -22,8 +34,9 @@ function workFunction() {
         setTimeout(function() {
             $(".workDesc").addClass("workDescDeco");
             $("header").addClass("headerFade"); 
-
+            
             $(".workShortcutBar").css({"display": "block"});
+            $(".workShortcutSide").removeClass("workShortcutSideSwooshOut");
             $(".workShortcutSide").addClass("workShortcutSideSwooshIn");
 
             buttonDesignLoad();
@@ -36,18 +49,42 @@ function workFunction() {
             eventWorkSelectOn();
         }, 1400); 
     }
+    
+    function workEnd() {
+        nextWorkNumber = 0;
+        prevWork(); 
+        eventWorkSelectOff();
+        
+        $("header").addClass("headerFadeBack"); 
+        $("header").removeClass("headerFaded"); 
+        $(".workDesc").removeClass("workDescDeco");
+        
+        $(".workShortcutSide").addClass("workShortcutSideSwooshOut");
+        $(".workShortcutSide").removeClass("workShortcutSideSwooshIn");
+        
+        setTimeout(function() {
+            $(".workShortcutBar").css({"display": "none"});
+            
+            $("header").removeClass("headerFaded");
+            $("header").removeClass("headerFadeBack"); 
 
+            $(".menuButton").removeClass("activeMenu");
+            $(".menu ul li:nth-child(6) div").addClass("activeMenu");
+        }, 800);
+
+        setTimeout(function() {            
+            $(".workContent").css({"display": "none"});
+            $(".startContent").css({"display": "inherit"});                     
+        }, 800);
+    }
     //--- --- --- ---
     //--- work showcase selector --- 
-    var finalWorkNumber= 4;
-    var workNumber = 0;
-    var nextWorkNumber = 1;
+        var workAnimation = false;
+        var scrollUp;   
+        var jumpDistWorkNumber;  
 
-    var workAnimation = false;
-    var scrollUp = true;    
-
-    var startY;
-    var endY;
+        var startY;
+        var endY;
 
         //--- --- --- ---
         //--- work showcase navigation --- 
@@ -93,8 +130,7 @@ function workFunction() {
             }
 
 
-            //--- work shortcutBar directLink ---
-            var jumpDistWorkNumber;   
+            //--- work shortcutBar directLink --- 
             $(".workShortcutButton").click(function() {
                 if (workAnimation === false) {
                     workAnimation = true;
@@ -226,141 +262,142 @@ function workFunction() {
 
 
 
-    //--- --- --- ---
-    //--- expand work details --- 
-    var expandedWork = false;
+        //--- --- --- ---
+        //--- expand work details --- 
+            var expandedWork = false;
 
-    //--- greyfilter off/on --- 
+            //--- greyfilter off/on --- 
 
-    $(".workFrame").click(function() {
-        if (expandedWork === false && workNumber != 0) {
-            expandWork();  
-        }       
-    });
+            $(".workFrame").click(function() {
+                if (expandedWork === false && workNumber != 0) {
+                    expandWork();  
+                }       
+            });
 
-    $(".workContentLargeReturnButton").click(function() {
-        if (expandedWork === true) {
-            closeExpanWork(); 
-        }          
-    });
+            $(".workContentLargeReturnButton").click(function() {
+                if (expandedWork === true) {
+                    closeExpandWork(); 
+                }          
+            });
 
-    function expandWork() {
+            function expandWork() {
 
-        eventWorkSelectOff();
-        //--- close header menu / decomment later when combine all js!---
-        //closeMoMenu();
+                eventWorkSelectOff();
+                //--- close header menu / decomment later when combine all js!---
+                //closeMoMenu();
 
-        workAnimation = true;
-        expandWorkAnimations();
+                workAnimation = true;
+                expandWorkAnimations();
 
-        setTimeout(function(){
-            $(".workContent").addClass("workContentLargeDesc"); 
-            //closeMoMenu();
-        }, 800); 
-        
-        setTimeout(function(){
-            $(".workDesc").removeClass("workDescDeco");
-        }, 1200); 
-        
-        setTimeout(function(){
-            $(".workDescBig").removeClass("displayNone");
-            $(".workDescBig"+workNumber).removeClass("displayNone");
+                setTimeout(function(){
+                    $(".workContent").addClass("workContentLargeDesc"); 
+                    //closeMoMenu();
+                }, 800); 
 
-            $(".workDesc p").addClass("displayNone");
+                setTimeout(function(){
+                    $(".workDesc").removeClass("workDescDeco");
+                }, 1200); 
 
-            expandedWork = true;
-        }, 1400);            
-    }  
+                setTimeout(function(){
+                    $(".workDescBig").removeClass("displayNone");
+                    $(".workDescBig"+workNumber).removeClass("displayNone");
 
-    function closeExpanWork() {
+                    $(".workDesc p").addClass("displayNone");
 
-        closeExpanWorkAnimations();
+                    expandedWork = true;
+                }, 1400);            
+            }  
 
-        setTimeout(function(){
-            $(".workDescBig").addClass("displayNone");      
-            $(".workDescBig"+workNumber).addClass("displayNone"); 
+            function closeExpandWork() {
 
-            $(".workDesc").addClass("workDescDeco");
-        }, 800);    
+                closeExpandWorkAnimations();
 
-        setTimeout(function(){   
-            $(".workDesc p").removeClass("displayNone");
-        }, 1700);  
+                setTimeout(function(){
+                    $(".workDescBig").addClass("displayNone");      
+                    $(".workDescBig"+workNumber).addClass("displayNone"); 
 
-        setTimeout(function(){
-            $(".workContent").removeClass("workContentLargeDesc");
-            expandedWork = false;
-        }, 2200);       
+                    $(".workDesc").addClass("workDescDeco");
+                }, 800);    
 
-        setTimeout(function(){   
-            workAnimation = false; 
-            eventWorkSelectOn();
-        }, 2800); 
-    }
+                setTimeout(function(){   
+                    $(".workDesc p").removeClass("displayNone");
+                }, 1700);  
 
-    function expandWorkAnimations() {
-        //--- grey animation 08 ---
-        $(".workFrame").addClass("removeGreyFilter");          
-        //--- sidebar animation 08 ---
-        $(".workShortcutSide").addClass("workShortcutSideSwooshOut");
+                setTimeout(function(){
+                    $(".workContent").removeClass("workContentLargeDesc");
+                    expandedWork = false;
+                }, 2200);       
 
-        setTimeout(function(){    
-            //--- desc animation 08 ---
-            $(".workBox").addClass("workOpenLargeDesc");
-            //--- header animation 05 ---
-            $("header").addClass("headerGone");
+                setTimeout(function(){   
+                    workAnimation = false; 
+                    eventWorkSelectOn();
+                }, 2800); 
+            }
 
-            $(".workShortcutSide").removeClass("workShortcutSideSwooshIn");
-        }, 810); 
+            function expandWorkAnimations() {
+                //--- grey animation 08 ---
+                $(".workFrame").addClass("removeGreyFilter");          
+                //--- sidebar animation 08 ---
+                $(".workShortcutSide").addClass("workShortcutSideSwooshOut");
 
-         setTimeout(function(){          
-            //---  ---
-            $(".workDescBig").removeClass("workDescBigFadeOut");
-            $(".workDescBig").addClass("workDescBigFadeIn");
+                setTimeout(function(){    
+                    //--- desc animation 08 ---
+                    $(".workBox").addClass("workOpenLargeDesc");
+                    //--- header animation 05 ---
+                    $("header").addClass("headerGone");
 
-            //--- backButton animation 08 ---
-            $(".workContentLargeReturnButton").removeClass("displayNone");
-            $(".workContentLargeReturnButton").addClass("workContentLargeReturnButtonSwooshIn");
-        }, 1400);
+                    $(".workShortcutSide").removeClass("workShortcutSideSwooshIn");
+                }, 810); 
 
-        setTimeout(function(){
-            $(".workContentLargeReturnButton").removeClass("workContentLargeReturnButtonSwooshIn");
-        }, 2200);            
-    }
+                 setTimeout(function(){          
+                    //---  ---
+                    $(".workDescBig").removeClass("workDescBigFadeOut");
+                    $(".workDescBig").addClass("workDescBigFadeIn");
 
-    function closeExpanWorkAnimations() {                        
-        //--- use next work animations ---
-        nextWork();
+                    //--- backButton animation 08 ---
+                    $(".workContentLargeReturnButton").removeClass("displayNone");
+                    $(".workContentLargeReturnButton").addClass("workContentLargeReturnButtonSwooshIn");
+                }, 1400);
 
-        //--- grey animation 08 ---
-        $(".workFrame").removeClass("removeGreyFilter");
-        //--- backButton animation 08 ---
-        $(".workContentLargeReturnButton").addClass("workContentLargeReturnButtonSwooshOut");
-        //---  ---
-        $(".workDescBig").removeClass("workDescBigFadeIn");
-        $(".workDescBig").addClass("workDescBigFadeOut");
+                setTimeout(function(){
+                    $(".workContentLargeReturnButton").removeClass("workContentLargeReturnButtonSwooshIn");
+                }, 2200);            
+            }
 
-        setTimeout(function(){
-            //--- desc animation 08 ---
-            $(".workBox").addClass("workCloseLargeDesc");
-            $(".workBox").removeClass("workOpenLargeDesc");   
+            function closeExpandWorkAnimations() {                        
+                //--- use next work animations ---
+                nextWork();
 
-            $(".workContentLargeReturnButton").addClass("displayNone");
-        }, 900); 
+                //--- grey animation 08 ---
+                $(".workFrame").removeClass("removeGreyFilter");
+                //--- backButton animation 08 ---
+                $(".workContentLargeReturnButton").addClass("workContentLargeReturnButtonSwooshOut");
+                //---  ---
+                $(".workDescBig").removeClass("workDescBigFadeIn");
+                $(".workDescBig").addClass("workDescBigFadeOut");
 
-        setTimeout(function(){   
-            //--- header animation 05 ---
-            $("header").addClass("headerIn");  
-        }, 1700); 
+                setTimeout(function(){
+                    //--- desc animation 08 ---
+                    $(".workBox").addClass("workCloseLargeDesc");
+                    $(".workBox").removeClass("workOpenLargeDesc");   
 
-        setTimeout(function(){
-            $("header").removeClass("headerGone");
-            $("header").removeClass("headerIn");  
+                    $(".workContentLargeReturnButton").addClass("displayNone");
+                }, 900); 
 
-            $(".workShortcutSide").removeClass("workShortcutSideSwooshOut"); 
-            $(".workContentLargeReturnButton").removeClass("workContentLargeReturnButtonSwooshOut");     
+                setTimeout(function(){   
+                    //--- header animation 05 ---
+                    $("header").addClass("headerIn");  
+                }, 1700); 
 
-            $(".workBox").removeClass("workCloseLargeDesc");
-        }, 2200);  
-    }
+                setTimeout(function(){
+                    $("header").removeClass("headerGone");
+                    $("header").removeClass("headerIn");  
+
+                    $(".workShortcutSide").removeClass("workShortcutSideSwooshOut"); 
+                    $(".workContentLargeReturnButton").removeClass("workContentLargeReturnButtonSwooshOut");     
+
+                    $(".workBox").removeClass("workCloseLargeDesc");
+                }, 2200);  
+            }
 }
+

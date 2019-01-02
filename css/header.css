@@ -43,16 +43,12 @@ header {
     float: left;
     color: #EDEDED;
     transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -webkit-transition: all 1s ease-in-out;
 }
 .logoName:hover {
     color: white;
 }
 .logoName:hover h1:nth-child(2) {  
-    color: #27f796;
+    color: #E08970;
 }
 
 /* --- Header Top Slogan --- */
@@ -176,20 +172,16 @@ header {
     color: #EDEDED;   
     background-color: #292828;
     
-    transition: color 0.5s ease-in-out;
-    -o-transition: color 0.5s ease-in-out;
-    -ms-transition: color 0.5s ease-in-out;
-    -moz-transition: color 0.5s ease-in-out;
-    -webkit-transition: color 0.5s ease-in-out;
+    transition: color 0.25s ease-in-out;
 }
 
 .menuButton:hover {
     background-color: #363534;
-    color: #27f796;
+    color: #E08970;
 }
 
 .activeMenu{
-    color: #27f796;
+    color: #E08970;
 }
 
 /* --- Spacer Menu Point --- */
@@ -210,8 +202,12 @@ header {
 
 /* --- Small header + animation --- */
 .headerFade{
-    -webkit-animation: headerAnim 0.8s forwards;
-    animation: headerAnim 0.8s forwards;
+    -webkit-animation: headerAnim 0.5s forwards;
+    animation: headerAnim 0.5s forwards;
+}
+.headerFadeBack{
+    -webkit-animation: headerAnim 0.5s forwards reverse;
+    animation: headerAnim 0.5s forwards reverse;
 }
     @-webkit-keyframes headerAnim {
         from {top: 0px;}
