@@ -21,6 +21,9 @@ body {
 .displayNone {
     display: none;
 }
+.opacityNone {
+    opacity: 0;
+}
 
 .switchButtonIcon p:nth-child(1){
     display: block; 

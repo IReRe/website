@@ -22,9 +22,8 @@
     <link href="css/work.css" type="text/css" media="screen" rel="stylesheet">
     
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
-    <script type="text/javascript" language="javascript" src="js/header.js"></script>
-    <script type="text/javascript" language="javascript" src="js/work.js"></script>
+
+    <script type="text/javascript" language="javascript" src="js/main.js"></script>
     
 	<script src="js/modernizr.js"></script>
 	<script src="js/respond.min.js"></script>
@@ -156,6 +155,8 @@
 
             </div>
 
+            <div class="workBoxBack opacityNone"></div>
+
             <div class="workDescBig displayNone">
 
                 <div class="workContentLargeReturnButton displayNone"></div>
@@ -166,11 +167,14 @@
                         <p>Location: Siem Reap, Kambodia</p>
                     </div>
                   
-                    <div class="workDescBigPictureContainer01">
-                        <img class="imgSizeSqr imgPosCent img1" src="img/w11.jpg">
-                        <img class="imgSizeSqr imgPosCent img1" src="img/w12.jpg">
-                        <img class="imgSizeSqr imgPosCent img1" src="img/w13.jpg">
-                        <img class="imgSizeSqr imgPosCent img1" src="img/w14.jpg">
+                    <div class="workDescBigMainContainer">
+                        <div class="workDescBigImg W1Img1"></div>
+                        <div class="workDescBigImg W1Img2"></div>
+                        <div class="workDescBigText">
+                            <p> oi </p>
+                        </div>
+                        <div class="workDescBigImg W1Img3"></div>
+                        <div class="workDescBigImg W1Img4"></div>
                     </div>
                 </section>
 
@@ -203,8 +207,7 @@
     <script>
         $(document).ready(function() {
             preloading();
-            headerFunction();
-            workFunction();
+            mainFunction();
         });
         
         var xLoadingTime = 300;
@@ -220,12 +223,18 @@
         
         $(document).bind('mousemove', function(e){
             setTimeout(function(){  
-                $('.thingy').css({"top":  ((e.pageY / $(document).height() * 400) -23), "left":  ((e.pageX / $(document).width() * 400) -23) });
+                $('.thingy').css({
+                    "top":  ((e.pageY / $(document).height() * 400) -53), 
+                    "left": ((e.pageX / $(document).width() * 400) -23) 
+                });
             }, 400);
         });
         $(document).on('touchstart', function(e){
             setTimeout(function(){  
-                $('.thingy').css({"top":  ((e.pageY / $(document).height() * 400) -23), "left":  ((e.pageX / $(document).width() * 400) -23) });
+                $('.thingy').css({
+                    "top":  ((e.pageY / $(document).height() * 400) -53), 
+                    "left": ((e.pageX / $(document).width() * 400) -23) 
+                });
             }, 400);
         });
         

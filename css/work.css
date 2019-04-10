@@ -16,16 +16,13 @@
     align-items: center; 
 }
 .workFrame {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-
     -webkit-background-size: cover;
     background-size: cover;
     
     background-attachment: fixed;  
     background-position: center center; 
     background-repeat: no-repeat;
-    
+
     height: 80%;
     width: 100%;
     margin-left: 0%;
@@ -33,6 +30,7 @@
     margin-top: calc(5% + 50px);
     margin-bottom: 5%;
     position: static;
+    overflow: hidden;
     
     display: flex;
     justify-content: center;
@@ -40,6 +38,18 @@
     
     cursor: pointer;
 }
+.workBoxBack {
+    position: absolute;
+    z-index: 500;
+    top: 55px;
+    left: calc(50% - 27px);
+    width: 50px;
+    height: 50px;
+
+    transition: opacity 0.6s ease-in;
+    border: 2px dashed #292828;
+}
+
 /* --- Animations workchanges --- */
 .workNextA{
     -webkit-animation: aniNextWA 0.6s forwards;
@@ -47,13 +57,11 @@
 }
     @-webkit-keyframes aniNextWA {
         0% {top: 0%;}
-        60% {height: 100%;}
-        100% {top: -100%; height: 50%;}
+        100% {top: -100%;}
     }
     @keyframes aniNextWA {
         0% {top: 0%;}
-        60% {height: 100%;}
-        100% {top: -100%; height: 0%;}
+        100% {top: -100%;}
     }
 .workNextB{
     -webkit-animation: aniNextWB 0.6s forwards;
@@ -61,12 +69,10 @@
 }
     @-webkit-keyframes aniNextWB {
         0% {top: 100%;}
-        40% {}
         100% {top: 0%;}
     }
     @keyframes aniNextWB {
         0% {top: 100%;}
-        40% {}
         100% {top: 0%;}
     }
 .workPrevA{
@@ -75,13 +81,11 @@
 }
     @-webkit-keyframes aniPrevWA {
         0% {top: 0%;}
-        40% {height: 100%;}
-        100% {top: 100%; height: 50%;}
+        100% {top: 100%;}
     }
     @keyframes aniPrevWA {
         0% {top: 0%;}
-        40% {height: 100%;}
-        100% {top: 100%; height: 50%;}
+        100% {top: 100%;}
     }
 .workPrevB{
     -webkit-animation: aniPrevWB 0.6s forwards;
@@ -89,12 +93,10 @@
 }
     @-webkit-keyframes aniPrevWB {
         0% {top: -100%;}
-        60% {}
         100% {top: 0%;}
     }
     @keyframes aniPrevWB {
         0% {top: -100%;}
-        60% {}
         100% {top: 0%;}
     }
 .workShake{
@@ -103,18 +105,19 @@
 }
     @-webkit-keyframes aniShakeW {
         0% {top: 0%;}
-        25% {top: 2%;}
+        25% {top: 1%;}
         50% {}
-        75% {top: -2%;}
+        75% {top: -1%;}
         100% {top: 0%;}
     }
     @keyframes aniShakeW {
         0% {top: 0%;}
-        25% {top: 2%;}
+        25% {top: 1%;}
         50% {}
-        75% {top: -2%;}
+        75% {top: -1%;}
         100% {top: 0%;}
     }
+
 /* --- Work pictures --- */
 .workPic1 {
     background-image: url(../img/w10.jpg);     
@@ -279,14 +282,14 @@
     justify-content: center;
     align-items: center; 
     overflow-y: scroll;
+
+    scroll-snap-type: block proximity;
+    height: 100vh;
 }
 .workContentLargeDesc .workShortcutSide {
     display: none;
 }
 .workContentLargeDesc .workFrame {
-    -webcit-clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0 100%);    
-    clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0 100%);    
-
     padding-top: 15%;
     padding-bottom: 15%;
     cursor: default;
@@ -370,18 +373,49 @@
     }
 
 .workDescBig section {
-    position: ;
+
+}
+.workDescBig section div{
+    scroll-snap-align: end;
 }
 
 .workDescBigBlackInfo {
-    position: absolute;
-    
     width: 100%;
-    height: 40%;
+    height: 32vh;
     background-color:  #292828;
     color: #EDEDED;
 }
 .workDescBigBlackInfo p {
-    margin-top: 10px;
-    margin-left: 5px;
+}
+
+.workDescBigMainContainer div{
+    height: 100vh;
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+.workDescBigText p{
+    height: 50px; 
+}
+
+.workDescBigImg {
+    background-size: auto 90%; 
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+/*Images Work1*/
+.W1Img1 {
+    background-image: url(../img/w11.jpg); 
+}
+.W1Img2 {
+    background-image: url(../img/w12.jpg); 
+}
+.W1Img3 {
+    background-image: url(../img/w13.jpg); 
+}
+.W1Img4 {
+    background-image: url(../img/w14.jpg); 
 }
